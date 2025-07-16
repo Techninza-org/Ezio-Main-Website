@@ -1,0 +1,153 @@
+.site-footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71, #f39c12, #e74c3c);
+        }
+        
+        .footer-section h5 {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #3498db;
+        }
+        
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.3rem 0;
+            position: relative;
+        }
+        
+        .footer-link:hover {
+            color: #3498db;
+            padding-left: 10px;
+        }
+        
+        .footer-link::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 1px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::before {
+            width: 5px;
+        }
+        
+        .contact-info {
+            /* background: rgba(255, 255, 255, 0.05); */
+            /* border-radius: 10px; */
+            padding: 1.5rem;
+            /* border: 1px solid rgba(255, 255, 255, 0.1); */
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+        
+        .contact-item i {
+            color: #3498db;
+            width: 20px;
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .logo-container {
+            text-align: start;
+        }
+        
+        .logo-container img {
+            max-width: 120px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+        
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            
+            padding-top: 1.5rem;
+        }
+        
+        .copyright-text {
+            color: #95a5a6;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: start;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-link:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+            
+            .contact-info {
+                margin-bottom: 2rem;
+          
+              }
+        }

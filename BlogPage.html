@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylish Blog Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="footer.css" />
+
+    <style>
+      .blog-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .blog {
+        flex: 1 0 calc(33.33% - 20px);
+        min-width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .blog-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .blog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .blog-image img:hover {
+        transform: scale(1.05);
+      }
+
+      .blog-image .date {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 14px;
+      }
+
+      .blog-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .blog-content h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-size: 28px;
+      }
+
+      .blog-content p {
+        flex-grow: 1;
+        color: #131212;
+        margin-bottom: 20px;
+      }
+
+      .blog-content a {
+        align-self: flex-start;
+        background-color: #000000;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        margin-top: auto;
+      }
+
+      .blog-content a:hover {
+        background-color: #0056b3;
+      }
+
+      @media screen and (max-width: 992px) {
+        .blog {
+          flex: 1 0 calc(50% - 20px);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .blog {
+          flex: 1 0 100%;
+        }
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/EZILogo.png" alt="EZI Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link " href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link active" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- blog -->
+    <div class="container" style="margin-top: 100px">
+      <div id="blog-container"></div>
+    </div>
+    
+    <footer class="site-footer text-white py-5">
+      <div class="container">
+        <!-- Logo Section -->
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
+                <a href="/">
+                  <img src="images/EZILogo.png" alt="EZI Logo" />
+                </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for exceptional travel experiences. 
+                We specialize in creating memorable journeys with personalized service and competitive prices.
+              </p>
+              <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61561465412880" target="_blank" class="social-link" title="Facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://x.com/eziotravels" class="social-link" target="_blank"  title="Twitter">
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href="https://www.instagram.com/eziotravels/?hl=en" target="_blank"  class="social-link" title="Instagram">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank"  class="social-link" title="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br> NOIDA 16, UP 201301
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link">namaste@eziotravels.com</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link">+91 98108 33897</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a> 
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a> 
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a href="./privacyPolicy.html" class="footer-link" target="_blank">
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a href="./term&condition.html" class="footer-link" target="_blank">
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+                <a href="./refundPolicy.html" class="footer-link" target="_blank">
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text mb-3">
+                &copy; 2024 All Rights Reserved by <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to fetch blog data and generate cards
+        function loadBlogs() {
+          axios
+            .get("https://eziotravels.com/api/auth/blogs")
+            .then(function (response) {
+              if (response.data.status === 200) {
+                const blogs = response.data.blogs;
+                const blogContainer = document.getElementById("blog-container");
+                blogContainer.innerHTML = ""; // Clear any existing content
+
+                // Create rows dynamically based on the number of blogs
+                const blogsPerRow = 3; // Number of blogs per row
+                for (let i = 0; i < blogs.length; i += blogsPerRow) {
+                  const blogRow = document.createElement("div");
+                  blogRow.className = "blog-row";
+
+                  // Loop through the blogs in the current row
+                  for (
+                    let j = i;
+                    j < i + blogsPerRow && j < blogs.length;
+                    j++
+                  ) {
+                    const blog = blogs[j];
+                    const blogDiv = document.createElement("div");
+                    blogDiv.className = "blog";
+
+                    blogDiv.innerHTML = `
+                      <div class="blog-image">
+                        <img src="${blog.image}" alt="${blog.title}"/>
+                        <div class="date">${new Date(
+                          blog.created_at
+                        ).toLocaleDateString()}</div>
+                      </div>
+                      <div class="blog-content">
+                        <h2>${blog.title}</h2>
+                        <p>${blog.description.slice(0, 50)}...</p>
+                        <a href="Blog.html?id=${blog.slug}">Read More</a>
+                      </div>
+                    `;
+
+                    blogRow.appendChild(blogDiv);
+                  }
+
+                  blogContainer.appendChild(blogRow); // Append the row to the container
+                }
+
+                // After rendering, set all cards in each row to the same height
+                setTimeout(function () {
+                  document.querySelectorAll('.blog-row').forEach(function(row) {
+                    let maxHeight = 0;
+                    const cards = row.querySelectorAll('.blog');
+                    cards.forEach(function(card) {
+                      card.style.height = 'auto'; // Reset height
+                      if (card.offsetHeight > maxHeight) {
+                        maxHeight = card.offsetHeight;
+                      }
+                    });
+                    cards.forEach(function(card) {
+                      card.style.height = maxHeight + 'px';
+                    });
+                  });
+                }, 100);
+              }
+            })
+            .catch(function (error) {
+              console.error("Error fetching blogs:", error);
+            });
+        }
+
+        // Call the loadBlogs function on page load
+        loadBlogs();
+
+        // Optional: Re-apply equal heights on window resize
+        window.addEventListener('resize', function() {
+          document.querySelectorAll('.blog-row').forEach(function(row) {
+            let maxHeight = 0;
+            const cards = row.querySelectorAll('.blog');
+            cards.forEach(function(card) {
+              card.style.height = 'auto';
+              if (card.offsetHeight > maxHeight) {
+                maxHeight = card.offsetHeight;
+              }
+            });
+            cards.forEach(function(card) {
+              card.style.height = maxHeight + 'px';
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

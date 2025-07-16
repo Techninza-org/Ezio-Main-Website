@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - EZIO TRAVELS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="footer.css" />
+    <style>
+      .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 100px 0;
+        color: white;
+      }
+
+      .about-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .about-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .icon-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .stats-section {
+        background: #f8f9fa;
+        padding: 60px 0;
+      }
+
+      .stat-item {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .team-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .team-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/EZILogo.png" alt="EZI Logo" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link  " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="BlogPage.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="package.html">Package</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mb-4">About EZIO TRAVELS</h1>
+            <p class="lead mb-4">
+              Your trusted partner for exceptional travel experiences since
+              2015. We specialize in creating memorable journeys with
+              personalized service and competitive prices.
+            </p>
+            <a href="contact.html" class="btn btn-light btn-lg">Get In Touch</a>
+          </div>
+          <div class="col-lg-6">
+            <div class="text-center">
+              <i class="fas fa-plane fa-10x opacity-25"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 d-flex">
+            <div class="about-card flex-fill h-100 d-flex flex-column">
+              <div class="icon-box">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h4>Our Vision</h4>
+              <p class="mb-0">
+                Redefine travel as an intelligent, collaborative experience
+                where discovery meets data-driven innovation, bridging human
+                insight and digital tools
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex">
+            <div class="about-card flex-fill h-100 d-flex flex-column">
+              <div class="icon-box">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h4>Our Mission</h4>
+              <p class="mb-0">
+                Elevate global travel through technology, community, and
+                consciousness—making journeys more connected, memorable, and
+                rewarding for travelers and businesses.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex">
+            <div class="about-card flex-fill h-100 d-flex flex-column">
+              <div class="icon-box">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h4>Our Values</h4>
+              <p class="mb-0">
+                Human-centric technology. Collaborative exploration. Business
+                empowerment. Conscious journeys. Uncompromising trust. These
+                pillars guide us in creating meaningful travel solutions that
+                serve both adventurers and industry partners with equal care,
+                innovation and integrity
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <!-- <section class="stats-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">10,000+</div>
+              <h5>Happy Customers</h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <h5>Destinations</h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">9</div>
+              <h5>Years Experience</h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <h5>Support</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Company Story -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <!-- <h2>Our Story</h2> -->
+            <p>
+              Ezio is a comprehensive digital travel platform redefining how
+              journeys are planned, experienced, and shared. Far beyond a
+              traditional booking site, Ezio functions as a digital cotraveller
+              — offering travelers an intelligent, intuitive way to discover
+              destinations, collaborate on itineraries, and engage socially
+              through their journey.
+            </p>
+            <p>
+              At the same time, Ezio empowers travel businesses — including
+              agencies, creators, and tourism brands — with smart tools for trip
+              planning, lead generation, customer engagement, and experience
+              enhancement.
+            </p>
+            <p>
+              Founded by Shivam Kumar, an MBA from NMIMS, established
+              entrepreneur, Hero MotoCorp dealership partner, and certified
+              expert in Numerology, Vastu, and Palmistry — Ezio bridges business
+              innovation with deep human insight to create meaningful,
+              data-driven travel solutions.
+            </p>
+            <p>
+              Our mission is simple: to elevate global travel through
+              technology, community, and consciousness — making each journey
+              more connected, memorable, and rewarding for both travelers and
+              businesses.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="text-center">
+              <i
+                class="fas fa-map-marked-alt fa-10x text-primary opacity-25"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <!-- <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Meet Our Team</h2>
+          <p class="lead">
+            The passionate professionals behind your amazing travel experiences
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="team-card">
+              <div class="team-img">
+                <i class="fas fa-user"></i>
+              </div>
+              <h5>Rajesh Kumar</h5>
+              <p class="text-muted">Founder & CEO</p>
+              <p>
+                With 15+ years in the travel industry, Rajesh leads our company
+                with vision and dedication.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="team-card">
+              <div class="team-img">
+                <i class="fas fa-user"></i>
+              </div>
+              <h5>Priya Sharma</h5>
+              <p class="text-muted">Head of Operations</p>
+              <p>
+                Priya ensures smooth operations and exceptional customer service
+                across all our services.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="team-card">
+              <div class="team-img">
+                <i class="fas fa-user"></i>
+              </div>
+              <h5>Amit Patel</h5>
+              <p class="text-muted">Travel Consultant</p>
+              <p>
+                Amit specializes in creating customized travel experiences
+                tailored to your preferences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="site-footer text-white py-5">
+        <div class="container">
+            <!-- Logo Section -->
+          
+
+            <div class="row">
+                <!-- About Us Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+                              <div class="logo-container">
+                <a href="/">
+                    <img src="images/EZILogo.png" alt="EZI Logo" />
+                </a>
+                  </div>
+                        <p class="footer-text">
+
+                            EZIO TRAVELS PRIVATE LIMITED is your trusted partner for exceptional travel experiences. 
+                            We specialize in creating memorable journeys with personalized service and competitive prices.
+                        </p>
+                    
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61561465412880" target="_blank" class="social-link" title="Facebook">
+                               <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://x.com/eziotravels" class="social-link" target="_blank"  title="Twitter">
+                               <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eziotravels/?hl=en" target="_blank"  class="social-link" title="Instagram">
+                              <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank"  class="social-link" title="LinkedIn">
+                               <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Us Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <div>
+                                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                   
+                                    REGUS WTT, TOWER B 16TH FLOOR,<br> NOIDA 16, UP 201301
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <a href="mailto:namaste@eziotravels.com" class="footer-link">namaste@eziotravels.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <a href="tel:+9198108 33897" class="footer-link">+91 98108 33897</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+                        <div class="d-flex flex-column">
+                            <a href="./about.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>About Us
+                            </a>
+                             <a href="./BlogPage.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>Blog
+                            </a> 
+                            <a href="./index.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>Home
+                            </a> 
+                            <a href="./contact.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal & Policies Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+                        <div class="d-flex flex-column">
+                            <a href="./privacyPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                            </a>
+                            <a href="./term&condition.html" class="footer-link" target="_blank">
+                                <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                            </a>
+                            <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
+                            </a> -->
+                            <a href="./refundPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation Policy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div >
+                        <p class="copyright-text mb-0">
+                            &copy; 2024 All Rights Reserved by <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                        </p>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

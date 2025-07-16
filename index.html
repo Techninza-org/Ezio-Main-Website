@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ezio</title>
+  <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="hero.css" />
+  <style>
+    #loader,
+    #successAnimation {
+      display: none;
+      /* Initially hidden */
+      position: absolute;
+      /* Position them relative to the parent */
+      top: 50%;
+      /* Center vertically */
+      left: 50%;
+      /* Center horizontally */
+      transform: translate(-50%, -50%);
+      /* Move to center */
+      z-index: 10;
+      /* Ensure they are on top of other elements */
+    }
+
+    #successAnimation svg {
+      fill: green;
+      /* Change SVG color if needed */
+      width: 100px;
+      /* Width of the SVG */
+      height: 100px;
+      /* Height of the SVG */
+    }
+
+     .site-footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71, #f39c12, #e74c3c);
+        }
+        
+        .footer-section h5 {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #3498db;
+        }
+        
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.3rem 0;
+            position: relative;
+        }
+        
+        .footer-link:hover {
+            color: #3498db;
+            padding-left: 10px;
+        }
+        
+        .footer-link::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 1px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::before {
+            width: 5px;
+        }
+        
+        .contact-info {
+            /* background: rgba(255, 255, 255, 0.05); */
+            /* border-radius: 10px; */
+            padding: 1.5rem;
+            /* border: 1px solid rgba(255, 255, 255, 0.1); */
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+        
+        .contact-item i {
+            color: #3498db;
+            width: 20px;
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .logo-container {
+            text-align: start;
+        }
+        
+        .logo-container img {
+            max-width: 120px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+        
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+        }
+        
+        .copyright-text {
+            color: #95a5a6;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: start;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-link:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+            
+            .contact-info {
+                margin-bottom: 2rem;
+          
+              }
+        }
+
+   .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.image-item {
+    width: calc(20% - 15px);
+    position: relative;
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1; /* Maintain square aspect ratio */
+    min-height: 50vh; /* Minimum height */
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+    transition: all 0.3s ease;
+  
+}
+
+.image-item img:hover {
+    transform: translateY(-10px) scale(1.02);
+ 
+}
+
+/* Zigzag positioning for desktop only */
+@media (min-width: 992px) {
+    .image-item:nth-child(5n+1) {
+        transform: translateY(0);
+    }
+    .image-item:nth-child(5n+2) {
+        transform: translateY(30px);
+    }
+    .image-item:nth-child(5n+3) {
+        transform: translateY(60px);
+    }
+    .image-item:nth-child(5n+4) {
+        transform: translateY(30px);
+    }
+    .image-item:nth-child(5n+5) {
+        transform: translateY(0);
+    }
+}
+
+/* Tablet view - 3 columns */
+@media (max-width: 992px) {
+    .image-item {
+        width: calc(33.333% - 15px);
+    }
+    
+    /* Reset transforms for tablet */
+    .image-item:nth-child(n) {
+        transform: none;
+    }
+}
+
+/* Large mobile - 2 columns */
+@media (max-width: 768px) {
+    .image-item {
+        width: calc(50% - 15px);
+        aspect-ratio: 1/1;
+    }
+}
+
+/* Small mobile - 1 column */
+@media (max-width: 576px) {
+    .image-item {
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 16/9; /* Wider aspect ratio for mobile */
+    }
+    
+    .image-grid {
+        padding: 10px;
+        gap: 10px;
+    }
+}
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <section class="hero">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/EZILogo.png" alt="EZI Logo" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="BlogPage.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="package.html">Package</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Animated Travel Icons Background -->
+        <div class="travel-icons">
+            <i class="fas fa-plane travel-icon"></i>
+            <i class="fas fa-bus travel-icon"></i>
+            <i class="fas fa-ship travel-icon"></i>
+            <i class="fas fa-train travel-icon"></i>
+            <i class="fas fa-car travel-icon"></i>
+            <i class="fas fa-motorcycle travel-icon"></i>
+        </div>
+
+        <!-- Flying Airplane Animation -->
+        <div class="airplane-animation">
+            <i class="fas fa-plane"></i>
+        </div>
+
+        <!-- Moving Bus Animation -->
+        <div class="bus-animation">
+            <i class="fas fa-bus"></i>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="d-flex align-items-center min-vh-100 hero-content">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-10 col-xl-8">
+                        <h1 class="hero-title">
+                            The Ezio Travel App,<br>
+                            <span>designed for travellers</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Discover new places, meet fellow travellers, and share your journey with Ezio. 
+                            Your next adventure is just a tap away with our comprehensive travel companion.
+                        </p>
+                        
+                        <!-- Call to Action Buttons -->
+                        <div class="cta-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.tourntravel&hl=en" class="btn-primary-custom">
+                                <i class="fas fa-download"></i>
+                                Download App
+                            </a>
+                            <!-- <a href="#" class="btn-outline-custom">
+                                <i class="fas fa-play"></i>
+                                Watch Demo
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="feature-cards d-none d-lg-block">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="feature-title">Discover Places</div>
+                        <div class="feature-text">Find hidden gems and popular destinations worldwide</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-title">Meet Travellers</div>
+                        <div class="feature-text">Connect with like-minded adventurers on your journey</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="feature-title">Share Stories</div>
+                        <div class="feature-text">Document and share your travel experiences</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator d-none d-lg-block">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+   <section class="container shadow py-3 px-3 my-3 mt-5">
+        <div class="row justify-content-center align-items-center text-center">
+            <!-- Left Column (Title) -->
+            <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="text-start text-dark">
+                    Explore Our Vast Range of<br>
+                    <span>Ezio Travel App Services</span>
+                </h2>
+            </div>
+
+            <!-- Right Column (Cards) -->
+            <div class="col-lg-6">
+                <div class="row g-3 justify-content-center">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop" 
+                                 alt="Flight Booking" class="card-img-top custom-img" style="width: 100%; height: 40%;">
+                            <div class="card-overlay">
+                                <i class="fas fa-plane service-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto;">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" 
+                                 alt="Hotel Booking" class="card-img-top custom-img" style="width: 100%; height: 40%;">
+                            <div class="card-overlay">
+                                <i class="fas fa-hotel service-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto;">
+                            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop" 
+                                 alt="Car Rental" class="card-img-top custom-img" style="width: 100%; height: 40%;">
+                            <div class="card-overlay">
+                                <i class="fas fa-car service-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-md-3 mb-4">
+                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto">
+                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop" 
+                                 alt="Travel Packages" class="card-img-top custom-img" style="width: 100%; height: 40%;">
+                            <div class="card-overlay">
+                                <i class="fas fa-suitcase-rolling service-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <main class="container">
+
+    <div class="section-head col-sm-12" style="color: #56BC57;">
+      <h4><span>Explore Ezio Travel App for </span> All In One Services</h4>
+    </div>
+
+
+    <div class="owl-carousel owl-theme">
+
+      <div class="item">
+        <img src="images/Ecommerce & Marketplace Solution.jpg"
+          alt="Experience the evolution of mobile app development. Embrace innovation and stay ahead in the tech world with us." />
+        <div class="overlay">
+          <span><i class="bi bi-backpack"></i></span>
+          <div>
+            <p class="fs-5 fw-semibold">Variety of Packages</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/c3.jpg"
+          alt="Experience the evolution of mobile app development. Embrace innovation and stay ahead in the tech world with us." />
+        <div class="overlay">
+          <span><i class="bi bi-backpack"></i></span>
+          <div>
+            <p class="fs-5 fw-semibold">Protecting Your Wellness</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/blockchain-technology-concept-revolutionizing-industries-600nw-2481711293.jpg"
+          alt="Innovate app development with blockchain—secure, scalable, and designed for seamless mobile integration." />
+        <div class="overlay">
+          <span><i class="bi bi-router-fill"></i></span>
+          <div>
+            <!-- <h2>Barcelona</h2> -->
+            <p class="fs-5 fw-semibold">Social media platform</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/Internet of Things (IOT).jpg"
+          alt="App development shown with a globe and interconnected devices, symbolizing global connectivity and innovation." />
+        <div class="overlay">
+          <span><i class="bi bi-router-fill"></i></span>
+          <div>
+            <!-- <h2>Florence</h2> -->
+            <p class="fs-5 fw-semibold">Map View Connect</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/c2.jpg"
+          alt="Modern house representing a mobile app development company offering mobile app developer services." />
+        <div class="overlay">
+          <span><i class="bi-building-fill-check"></i></span>
+          <div>
+            <p class="fs-5 fw-semibold">Travel more, worry less</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/Education & Learning.jpg"
+          alt="Best app developers engaging in an educational discussion around a laptop, sharing insights and fostering collaboration  " />
+        <div class="overlay">
+          <span><i class="bi bi-backpack"></i></span>
+          <div>
+            <!-- <h2>West Coast</h2> -->
+            <p class="fs-5 fw-semibold">Creator Feature</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/Enterprise Mobility Solution.jpg"
+          alt="Android app development boosts business efficiency, connects with customers, and enhances global reach via smartphones." />
+        <div class="overlay">
+          <span><i class="bi bi-phone-fill"></i></span>
+          <div>
+            <!-- <h2>Venice</h2> -->
+            <p class="fs-5 fw-semibold">Community</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/Pickup & Delivery Solution.jpg"
+          alt="Mobile app developer transforming delivery services, ensuring seamless product delivery with advanced technology." />
+        <div class="overlay">
+          <span><i class="bi bi-truck"></i></span>
+          <div>
+            <!-- <h2>Venice</h2> -->
+            <p class="fs-5 fw-semibold">Travel Equipment Rentals</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/c1.jpg" alt="Italy" />
+        <div class="overlay">
+          <span><i class="bi bi-bus-front"></i></span>
+          <div>
+            <p class="fs-5 fw-semibold">Home away From Home</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="section-head col-sm-12">
+        <h4>
+          <span>Complete Services </span> Of Ezio Travel
+          Apps
+        </h4>
+      </div>
+
+      <!-- Cards Section -->
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="row">
+          <div class="col-6">
+            <div class="card appcard" data-image="images/ss14.png">
+              <i class="bi bi-luggage-fill fs-1" style="color:#56BC57"></i>
+              Explore Zone
+            </div>
+          </div>
+          <div class=" col-6">
+            <div class="card appcard" data-image="images/ss1.png">
+              <i class="bi bi-people-fill fs-1" style="color:#56BC57"></i>
+              Trip plan
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card appcard" data-image="images/ss2.png">
+              <i class="bi bi-person-heart fs-1" style="color:#56BC57"></i>
+              Connect other
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card appcard" data-image="images/ss6.png">
+              <i class="bi bi-phone-flip fs-1" style="color:#56BC57"></i>
+              Social Media Post
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card appcard" data-image="images/ss8.png">
+              <i class="bi bi-postcard-heart fs-1" style="color:#56BC57"></i>
+              Customize Trips
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card appcard" data-image="images/ss9.png">
+              <i class="bi bi-emoji-smile-upside-down-fill fs-1" style="color:#56BC57"></i>
+              Easy Connect the world
+            </div>
+          </div>
+          <!-- Add more cards if needed -->
+        </div>
+      </div>
+      <!-- Phone Image Section -->
+      <div class="col-md-6 d-flex justify-content-center">
+        <div class="phone-wrapper">
+          <img id="phoneImage" src="images/ss14.png" alt="Phone Image" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <!-- why chooose us -->
+
+  <div class="feat pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="section-head col-sm-12 text-center">
+          <h4><span>Why Choose</span> Us?</h4>
+        </div>
+        <div class="col-lg-4 col-6 d-flex justify-content-center">
+          <div class="choose-card">
+            <span class="icon feature_box_col_one">
+              <img src="images/tra.png" />
+            </span>
+            <h6>The Ezio Travel App</h6>
+            <p>
+              The Ezio Travel App, designed for travellers, Discover new places, meet fellow travellers, and share your
+              journey with Ezio the ultimate travel social media app! is launching soon. Stay tuned for the ultimate
+              travel experience!
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 d-flex justify-content-center">
+          <div class="choose-card">
+            <span class="icon feature_box_col_two">
+              <img src="images/explore.png" />
+            </span>
+            <h6>Explore Zone</h6>
+            <p>
+              Discover your Travel Destination with Explore Zone! Get itineraries created by various itinerary vendors
+              or create your own custom itinerary Choose from expertly crafted itineraries by top vendors. Explore more,
+              worry less!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 d-flex justify-content-center">
+          <div class="choose-card">
+            <span class="icon feature_box_col_three">
+              <img src="images/inspire.png" />
+            </span>
+            <h6>Inspire Others</h6>
+            <p>
+              Our social travel platform, Inspire Others, on EZIO Travel App! Discover user posts, travel reels, and
+              travellers . Share your journeys, get inspired by fellow travellers, lets inspire each other to travel
+              more!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 d-flex justify-content-center">
+          <div class="choose-card">
+            <span class="icon feature_box_col_four">
+              <img src="images/connect.png" />
+            </span>
+            <h6>Connect Other</h6>
+            <p>
+              With Connect Other on EZIO Travel App! View the locations of fellow travellers, connect through messaging,
+              and coordinate your adventures. Meet new friends, plan trips together, and explore the world with
+              like-minded explorers. Travel is better together!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 d-flex justify-content-center">
+          <div class="choose-card">
+            <span class="icon feature_box_col_five">
+              <img src="images/pack.png" />
+            </span>
+            <h6>Full-On Package</h6>
+            <p>
+              Ezio Travel offers an all-in-one solution for your travel needs. From planning your itinerary to booking
+              hotels, rental equipment, and travel insurance, we provide seamless integration of services to ensure your
+              journey is hassle-free. Enjoy peace of mind with a platform that takes care of everything — so you can
+              focus on making memories.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 d-flex justify-content-center">
+          <div class="choose-card">
+            <span class="icon feature_box_col_six">
+              <img src="images/ai2.png" />
+            </span>
+            <h6>Travel Connect</h6>
+            <p>
+
+              Discover new connections and build your travel community with our innovative Map View feature. It allows
+              you to explore other travelers live at your destination, interact with fellow explorers, and even form
+              communities with like-minded adventurers. Wherever your travels take you, Ezio Travel ensures you’re never
+              alone on the journey.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+
+  <div class="p-5 mb-5"
+    style="background-image: url('images/Frame\ 51.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="text-center">
+      <p id="elevate_freelance" style="
+            color:#56BC57;
+            font-size: 35px;
+            font-weight: bold;
+            margin: 0px;
+          ">
+        Stay connected with EZIO Travel App on all your favorite social platforms!
+      </p>
+
+    </div>
+  </div>
+
+ <div class="image-grid Zigzag">
+        <div class="image-item">
+            <img src="./images/ss1.png" alt="Share">
+        </div>
+        <div class="image-item">
+            <img src="./images/ss10.png" alt="Trending">
+        </div>
+        <div class="image-item">
+            <img src="./images/ss3.png" alt="Explore">
+        </div>
+        <div class="image-item">
+            <img src="./images/ss6.png" alt="Travelogue">
+        </div>
+        <div class="image-item">
+            <img src="./images/ss11.png" alt="Level Up">
+        </div>
+        <!-- <div class="image-item">
+            <img src="./images/ss9.png" alt="Rewards">
+        </div> -->
+    </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- jQuery (required by Owl Carousel) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+  <!-- JavaScript for Scroll -->
+
+
+  <script>
+    let currentIndex = 1; // Start from the first slide
+    const totalSlides = 5; // Total number of slides
+    const slideInterval = 2000; // 2 seconds
+
+    function autoSlide() {
+      currentIndex = (currentIndex % totalSlides) + 1; // Update current index and loop back if needed
+      document.getElementById('s' + currentIndex).checked = true; // Select the next radio button
+    }
+
+    setInterval(autoSlide, slideInterval);
+    
+
+    function openModal(videoId) {
+      var modal = document.getElementById("videoModal");
+      var iframe = document.getElementById("modalVideo");
+      iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      var modal = document.getElementById("videoModal");
+      var iframe = document.getElementById("modalVideo");
+      iframe.src = ""; // Stop the video when modal is closed
+      modal.style.display = "none";
+    }
+
+
+
+    $(document).ready(function () {
+      $('.carousel').slick({
+        prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-arrow-left"></i></button>', // Custom left arrow
+        nextArrow: '<button type="button" class="slick-next"><i class="fa fa-arrow-right"></i></button>', // Custom right arrow
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        dots: false,
+        centerMode: true,
+        centerPadding: '15%',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+      });
+    });
+
+
+
+
+
+
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      autoplay: true, // Auto-scroll the carousel
+      autoplayTimeout: 3000, // Change every 3 seconds
+      responsive: {
+        0: {
+          items: 2,
+        },
+        600: {
+          items: 4,
+        },
+      },
+    });
+
+    // JavaScript for hover effect and automatic image change
+
+    // Get the phone image element
+    const phoneImage = document.getElementById("phoneImage");
+
+    // Function to change the phone image
+    function changePhoneImage(imageSrc) {
+      phoneImage.src = imageSrc;
+    }
+
+    // Add hover effect to the cards
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        const imageSrc = card.getAttribute("data-image");
+        changePhoneImage(imageSrc);
+      });
+    });
+
+    // Automatic image change every 10 seconds
+    let slidercurrentIndex = 0;
+    const images = [
+      "images/ss14.png",  
+      "images/ss1.png",  
+      "images/ss2.png",
+      "images/ss3.png",
+      "images/ss4.png",
+      "images/ss5.png",
+      "images/ss6.png",
+      "images/ss9.png",
+      "images/ss8.png",
+      "images/ss10.png",
+      "images/ss11.png",
+      "images/ss12.png",
+      "images/ss13.png",
+    ];
+
+    setInterval(() => {
+      slidercurrentIndex = (slidercurrentIndex + 1) % images.length;
+      changePhoneImage(images[slidercurrentIndex]);
+    }, 1000);
+
+
+
+
+
+
+
+
+
+
+  </script>
+  <script>
+    // Function to validate email and phone
+    function validateEmail(email) {
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailPattern.test(email);
+    }
+
+    function validatePhone(phone) {
+      const phonePattern = /^[0-9]{10}$/; // Assuming a 10-digit phone number
+      return phonePattern.test(phone);
+    }
+
+    // Function to handle form submission
+    function handleFormSubmit(formId, fnameId, emailId, phoneId, messageId, loaderId, successAnimationId, responseMessageId) {
+      document.getElementById(formId).addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const name = document.getElementById(fnameId).value;
+        const email = document.getElementById(emailId).value;
+        const phone = document.getElementById(phoneId).value;
+        const message = document.getElementById(messageId).value;
+
+        // Validate email and phone
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email.");
+          return;
+        }
+        if (!validatePhone(phone)) {
+          alert("Please enter a valid 10-digit phone number.");
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('mobile', phone);
+        formData.append('message', message);
+
+        // Show loader and hide form
+        document.getElementById(loaderId).style.display = 'block';
+        document.getElementById(formId).style.display = 'none'; // Hide form
+
+        fetch('https://sooprs.com/api2/public/index.php/save-lead', {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Hide loader and show success animation
+            document.getElementById(loaderId).style.display = 'none';
+            document.getElementById(successAnimationId).style.display = 'block';
+            document.getElementById(responseMessageId).innerText = 'Thank you! We will contact you soon.';
+            document.getElementById(formId).reset(); // Reset form
+            setTimeout(() => {
+              window.location.href = 'https://sooprs.com';
+            }, 2000); // 2-second delay before redirect
+          })
+          .catch(error => {
+            // Hide loader and show error message
+            document.getElementById(loaderId).style.display = 'none';
+            document.getElementById(responseMessageId).innerText = 'There was an error submitting your request. Please try again.';
+            document.getElementById(successAnimationId).style.display = 'block'; // Show error message
+            console.error('There was a problem with the fetch operation:', error);
+          });
+      });
+    }
+
+    // Handle submission for both forms
+    handleFormSubmit('form1', 'fname1', 'email1', 'phone1', 'message1', 'loader1', 'successAnimation1', 'responseMessage1');
+    handleFormSubmit('form2', 'fname2', 'email2', 'phone2', 'message2', 'loader2', 'successAnimation2', 'responseMessage2');
+
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Delay modal display by 5 seconds (5000 milliseconds)
+      setTimeout(function () {
+        // Open the modal
+        const contactModal = new bootstrap.Modal(document.getElementById("contactModal"), {
+          backdrop: 'static', // Prevent clicking outside to close
+          keyboard: false     // Prevent closing with the Escape key
+        });
+        contactModal.show();
+      }, 3000);
+    });
+  </script>
+
+
+
+
+
+
+
+
+  <!-- Blog Section -->
+  <div class="Investor container mt-5" id="blogs">
+    <h1 class="head display-4 text-center mt-5">
+      Featured <span style="color: #1753ef">Blog</span>
+    </h1>
+    <div class="row" id="blogContainer">
+      <!-- Blog cards will be inserted here -->
+    </div>
+  </div>
+  <!-- 3d cube -->
+<!-- 
+  <div class="container1">
+    <div class="mybox">
+     
+      <div id="shape" class="ring" style="width: 400px; height: 300px;">
+        <div class="face one"> <img src="/images/EZILogo.png" alt="Face One" style="width: 100%; height: 100%;"></div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+  <!-- footer -->
+ 
+    <footer class="site-footer text-white py-5">
+        <div class="container">
+            <!-- Logo Section -->
+          
+
+            <div class="row">
+                <!-- About Us Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+                              <div class="logo-container">
+                <a href="/">
+                    <img src="images/EZILogo.png" alt="EZI Logo" />
+                </a>
+                  </div>
+                        <p class="footer-text">
+
+                            EZIO TRAVELS PRIVATE LIMITED is your trusted partner for exceptional travel experiences. 
+                            We specialize in creating memorable journeys with personalized service and competitive prices.
+                        </p>
+                    
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61561465412880" target="_blank" class="social-link" title="Facebook">
+                               <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://x.com/eziotravels" class="social-link" target="_blank"  title="Twitter">
+                               <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eziotravels/?hl=en" target="_blank"  class="social-link" title="Instagram">
+                              <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank"  class="social-link" title="LinkedIn">
+                               <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Us Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <div>
+                                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                   
+                                    REGUS WTT, TOWER B 16TH FLOOR,<br> NOIDA 16, UP 201301
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <a href="mailto:namaste@eziotravels.com" class="footer-link">namaste@eziotravels.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <a href="tel:+9198108 33897" class="footer-link">+91 98108 33897</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+                        <div class="d-flex flex-column">
+                            <a href="./about.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>About Us
+                            </a>
+                             <a href="./BlogPage.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>Blog
+                            </a> 
+                            <a href="./index.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>Home
+                            </a> 
+                            <a href="./contact.html" class="footer-link">
+                                <i class="fas fa-chevron-right me-2"></i>Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal & Policies Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+                        <div class="d-flex flex-column">
+                            <a href="./privacyPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                            </a>
+                            <a href="./term&condition.html" class="footer-link" target="_blank">
+                                <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                            </a>
+                            <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
+                            </a> -->
+                            <a href="./refundPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation Policy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div >
+                        <p class="copyright-text mb-0">
+                            &copy; 2024 All Rights Reserved by <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                        </p>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <script> src = "https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+      $(document).ready(function () {
+        $("#toggleBtn").click(function () {
+          $("#shape").toggleClass("cube ring");
+        });
+      });
+  </script>
+  <script>
+    function createBlog() {
+      axios
+        .get(` https://eziotravels.com/api/auth/blogs`)
+        .then(function (response) {
+          const blogs = response.data.blogs;
+          console.log(blogs);
+          const blogContainer = document.getElementById("blogContainer");
+
+          // Clear the container before appending new content
+          blogContainer.innerHTML = "";
+
+          // Loop through the blogs and create cards dynamically
+          // Select only the first 3 blogs
+          blogs.slice(0, 3).forEach((blog) => {
+            const blogCard = `
+     <div class="col-md-4 mb-4">
+  <div class="card h-100" style="border: none; background-color: rgb(231, 240, 241);">
+    <div class="card-img-container" style="height: 15rem; overflow: hidden;">
+      <img src="${blog.image}" class="card-img-top img-fluid h-100 w-100" style="object-fit: cover;" alt="Blog Image" />
+    </div>
+    <div class="card-body d-flex flex-column" style="min-height: 250px;">
+      <h4 class="card-title" style="text-align: left;">
+        ${blog.title.split(" ").slice(0, 8).join(" ")}..
+      </h4>
+      <p class="card-text flex-grow-1" style="text-align: left;">
+        ${blog.description.split(" ").slice(0, 15).join(" ")}...
+      </p>
+      <div class="mt-2 text-start">
+        <a href="Blog.html?id=${blog.slug}">
+          <button class="btn" style="background-color: #56BC57; color: white;">Read more</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+        `;
+            blogContainer.innerHTML += blogCard;
+          });
+        })
+        .catch(function (error) {
+          console.error("Error fetching blogs:", error);
+        });
+    }
+
+    // Ensure the function runs on page load
+    window.addEventListener("DOMContentLoaded", (event) => {
+      createBlog();
+    });
+  </script>
+
+  <script>
+    function showMore(id) {
+      var desc = document.getElementById(id);
+      if (desc.style.display === " none") { desc.style.display = "block"; } else { desc.style.display = "none"; }
+    }
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        loop: true, margin: 10, nav: true,
+        responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 3 } }
+      });
+    }); </script>
+
+      <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        // Add smooth scrolling effect
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                }
+            });
+
+            // Parallax effect for travel icons
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.travel-icon');
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
