@@ -1,531 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Quote - EZIO TRAVELS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="footer.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="footer.css" />
     <style>
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #56bc57;
-            --dark-color: #1a1a1a;
-            --light-color: #f8f9fa;
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #56bc57;
+        --dark-color: #1a1a1a;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .hero-section {
+       background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        padding: 100px 0 60px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* Form Styling */
+      .quote-form-container {
+        margin-top: -100px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .quote-form-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .quote-form-title {
+        background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .form-control,
+      .form-select {
+        border: 2px solid transparent;
+        border-radius: 15px;
+        padding: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      }
+
+      .btn-primary {
+      background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
+        border: none;
+        border-radius: 15px;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        width: 100%;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+      }
+
+      /* Loading States */
+      .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
         }
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f8f9fa;
-        }
+      /* Messages */
+      .success-message {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+        display: none;
+      }
 
-          .navbar {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand img {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-.nav-link {
-  font-weight: 500;
-  color: #333 !important;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #56bc57 !important;
-  transform: translateY(-2px);
-}
-
-.nav-link.active {
-  color: #56bc57 !important;
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 3px;
-  background: #56bc57;
-  border-radius: 2px;
-}
-.navbar-nav{
-
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            color: white;
-            padding: 100px 0 60px;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Form Styling */
-        .quote-form-container {
-            margin-top: -100px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .quote-form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .quote-form-title {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .form-control,
-        .form-select {
-            border: 2px solid transparent;
-            border-radius: 15px;
-            padding: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            border-radius: 15px;
-            padding: 1rem 2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            width: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-        }
-
-        /* Loading States */
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Messages */
-        .success-message {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            display: none;
-        }
-
-        .error-message {
-            background: linear-gradient(135deg, #dc3545, #fd7e14);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            display: none;
-        }
-
-     
-      
+      .error-message {
+        background: linear-gradient(135deg, #dc3545, #fd7e14);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
-  
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/EZILogo.png" alt="EZI Logo" height="40">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="BlogPage.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="package.html">Package</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/EZILogo.png" alt="EZI Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="hero-title">Get a Personalized Travel Package Quote</h1>
-                    <p class="hero-subtitle">Fill out the form below and our travel experts will create a customized itinerary just for you.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h1 class="hero-title">Get a Personalized Travel Package Quote</h1>
+            <p class="hero-subtitle">
+              Fill out the form below and our travel experts will create a
+              customized itinerary just for you.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Quote Form Section -->
     <section class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="quote-form-container">
-                    <div class="quote-form-card">
-                        <h4 class="quote-form-title">Travel Quote Request</h4>
-                        <form id="quoteForm">
-                            <div class="mb-3">
-                                <label for="name" class="form-label fw-bold">
-                                    <i class="fas fa-user me-2" style="color: var(--primary-color);"></i>Full Name
-                                </label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="phone" class="form-label fw-bold">
-                                    <i class="fas fa-phone me-2" style="color: var(--primary-color);"></i>Phone Number
-                                </label>
-                                <input type="tel" class="form-control" id="phone" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="number_of_people" class="form-label fw-bold">
-                                    <i class="fas fa-users me-2" style="color: var(--primary-color);"></i>Number of People
-                                </label>
-                                <input type="number" class="form-control" id="number_of_people" min="1" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="destinationId" class="form-label fw-bold">
-                                    <i class="fas fa-map-marker-alt me-2" style="color: var(--primary-color);"></i>Destination
-                                </label>
-                                <select class="form-select" id="destinationId" required>
-                                    <option value="">Loading destinations...</option>
-                                </select>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="duration" class="form-label fw-bold">
-                                    <i class="fas fa-calendar-days me-2" style="color: var(--primary-color);"></i>Duration (days)
-                                </label>
-                                <input type="number" class="form-control" id="duration" min="1" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="start_date" class="form-label fw-bold">
-                                    <i class="fas fa-calendar-check me-2" style="color: var(--primary-color);"></i>Travel Dates
-                                </label>
-                                <input type="date" class="form-control" id="start_date" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="notes" class="form-label fw-bold">
-                                    <i class="fas fa-edit me-2" style="color: var(--primary-color);"></i>Special Requirements
-                                </label>
-                                <textarea class="form-control" id="notes" rows="3" placeholder="Any special requests or preferences"></textarea>
-                            </div>
-                            
-                            <input type="hidden" id="source" value="WEBSITE">
-                            
-                            <button type="submit" class="btn btn-primary">
-                                <span id="submitText">Submit Quote Request</span>
-                                <span id="spinner" class="spinner" style="display: none;"></span>
-                            </button>
-                            
-                            <div id="successMessage" class="success-message mt-3">
-                                <i class="fas fa-check-circle me-2"></i> Your request has been submitted successfully! Our travel expert will contact you shortly.
-                            </div>
-                            <div id="errorMessage" class="error-message mt-3">
-                                <i class="fas fa-exclamation-circle me-2"></i> There was an error submitting your request. Please try again.
-                            </div>
-                        </form>
-                    </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="quote-form-container">
+            <div class="quote-form-card">
+              <h4 class="quote-form-title">Travel Quote Request</h4>
+              <form id="quoteForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label fw-bold">
+                    <i
+                      class="fas fa-user me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Full Name
+                  </label>
+                  <input type="text" class="form-control" id="name" required />
                 </div>
+
+                <div class="mb-3">
+                  <label for="phone" class="form-label fw-bold">
+                    <i
+                      class="fas fa-phone me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Phone Number
+                  </label>
+                  <input type="tel" class="form-control" id="phone" required />
+                </div>
+
+                <div class="mb-3">
+                  <label for="number_of_people" class="form-label fw-bold">
+                    <i
+                      class="fas fa-users me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Number of People
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="number_of_people"
+                    min="1"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="destinationId" class="form-label fw-bold">
+                    <i
+                      class="fas fa-map-marker-alt me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Destination
+                  </label>
+                  <select class="form-select" id="destinationId" required>
+                    <option value="">Loading destinations...</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="duration" class="form-label fw-bold">
+                    <i
+                      class="fas fa-calendar-days me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Duration (days)
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="duration"
+                    min="1"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="start_date" class="form-label fw-bold">
+                    <i
+                      class="fas fa-calendar-check me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Travel Dates
+                  </label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="start_date"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="notes" class="form-label fw-bold">
+                    <i
+                      class="fas fa-edit me-2"
+                      style="color: var(--primary-color)"
+                    ></i
+                    >Special Requirements
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="notes"
+                    rows="3"
+                    placeholder="Any special requests or preferences"
+                  ></textarea>
+                </div>
+
+                <input type="hidden" id="source" value="WEBSITE" />
+
+                <button type="submit" class="btn btn-primary">
+                  <span id="submitText">Submit Quote Request</span>
+                  <span
+                    id="spinner"
+                    class="spinner"
+                    style="display: none"
+                  ></span>
+                </button>
+
+                <div id="successMessage" class="success-message mt-3">
+                  <i class="fas fa-check-circle me-2"></i> Your request has been
+                  submitted successfully! Our travel expert will contact you
+                  shortly.
+                </div>
+                <div id="errorMessage" class="error-message mt-3">
+                  <i class="fas fa-exclamation-circle me-2"></i> There was an
+                  error submitting your request. Please try again.
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="site-footer text-white py-5">
-        <div class="container">
-            <!-- Logo Section -->
-          
+      <div class="container">
+        <!-- Logo Section -->
 
-            <div class="row">
-                <!-- About Us Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
-                              <div class="logo-container">
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
                 <a href="/">
-                    <img src="images/EZILogo.png" alt="EZI Logo" />
+                  <img src="images/EZILogo.png" alt="EZI Logo" />
                 </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for
+                exceptional travel experiences. We specialize in creating
+                memorable journeys with personalized service and competitive
+                prices.
+              </p>
+
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61561465412880"
+                  target="_blank"
+                  class="social-link"
+                  title="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://x.com/eziotravels"
+                  class="social-link"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/eziotravels/?hl=en"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ezio-travel/"
+                  target="_blank"
+                  class="social-link"
+                  title="LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
                   </div>
-                        <p class="footer-text">
-
-                            EZIO TRAVELS PRIVATE LIMITED is your trusted partner for exceptional travel experiences. 
-                            We specialize in creating memorable journeys with personalized service and competitive prices.
-                        </p>
-                    
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/profile.php?id=61561465412880" target="_blank" class="social-link" title="Facebook">
-                               <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="https://x.com/eziotravels" class="social-link" target="_blank"  title="Twitter">
-                               <i class="bi bi-twitter-x"></i>
-                            </a>
-                            <a href="https://www.instagram.com/eziotravels/?hl=en" target="_blank"  class="social-link" title="Instagram">
-                              <i class="bi bi-instagram"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank"  class="social-link" title="LinkedIn">
-                               <i class="bi bi-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-
-                <!-- Contact Us Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-building"></i>
-                                <div>
-                                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                   
-                                    REGUS WTT, TOWER B 16TH FLOOR,<br> NOIDA 16, UP 201301
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <a href="mailto:namaste@eziotravels.com" class="footer-link">namaste@eziotravels.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <a href="tel:+9198108 33897" class="footer-link">+91 98108 33897</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br />
+                    NOIDA 16, UP 201301
+                  </div>
                 </div>
-
-                <!-- Quick Links Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
-                        <div class="d-flex flex-column">
-                            <a href="./about.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>About Us
-                            </a>
-                             <a href="./BlogPage.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>Blog
-                            </a> 
-                            <a href="./index.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>Home
-                            </a> 
-                            <a href="./contact.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>Contact Us
-                            </a>
-                        </div>
-                    </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link"
+                      >namaste@eziotravels.com</a
+                    >
+                  </div>
                 </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link"
+                      >+91 98108 33897</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Legal & Policies Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
-                        <div class="d-flex flex-column">
-                            <a href="./privacyPolicy.html" class="footer-link" target="_blank">
-                                <i class="fas fa-user-shield me-2"></i>Privacy Policy
-                            </a>
-                            <a href="./term&condition.html" class="footer-link" target="_blank">
-                                <i class="fas fa-file-contract me-2"></i>Terms & Conditions
-                            </a>
-                            <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a>
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a>
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a
+                  href="./privacyPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a
+                  href="./term&condition.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+                <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
                                 <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
                             </a> -->
-                            <a href="./refundPolicy.html" class="footer-link" target="_blank">
-                                <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation Policy
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a
+                  href="./refundPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation
+                  Policy
+                </a>
+              </div>
             </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div >
-                        <p class="copyright-text mb-3">
-                            &copy; 2024 All Rights Reserved by <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
-                        </p>
-                    </div>
-                  
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text mb-3">
+                &copy; 2024 All Rights Reserved by
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Fetch destinations from API and populate dropdown
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://eziotravels.com/api/destination')
-                .then(response => response.json())
-                .then(data => {
-                    const select = document.getElementById('destinationId');
-                    select.innerHTML = '<option value="">Select a destination</option>';
-                    
-                    data.destinations.forEach(destination => {
-                        const option = document.createElement('option');
-                        option.value = destination.id;
-                        option.textContent = destination.destination;
-                        select.appendChild(option);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading destinations:', error);
-                    document.getElementById('destinationId').innerHTML = '<option value="">Error loading destinations</option>';
-                });
-        });
+      // Fetch destinations from API and populate dropdown
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("https://eziotravels.com/api/destination")
+          .then((response) => response.json())
+          .then((data) => {
+            const select = document.getElementById("destinationId");
+            select.innerHTML = '<option value="">Select a destination</option>';
 
-        // Handle quote form submission
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            document.getElementById('submitText').style.display = 'none';
-            document.getElementById('spinner').style.display = 'inline-block';
-            
-            // Hide any previous messages
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('errorMessage').style.display = 'none';
-            
-            // Format date as DD-MM-YYYY
-            const dateInput = document.getElementById('start_date').value;
-            const [year, month, day] = dateInput.split('-');
-            const formattedDate = `${day}-${month}-${year}`;
-            
-            // Prepare data for API
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                number_of_people: parseInt(document.getElementById('number_of_people').value),
-                destinationId: parseInt(document.getElementById('destinationId').value),
-                duration: parseInt(document.getElementById('duration').value),
-                start_date: formattedDate,
-                notes: document.getElementById('notes').value,
-                source: document.getElementById('source').value
-            };
-            
-            // Make API call
-            fetch('https://eziotravels.com/api/auth/quote_query', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
+            data.destinations.forEach((destination) => {
+              const option = document.createElement("option");
+              option.value = destination.id;
+              option.textContent = destination.destination;
+              select.appendChild(option);
+            });
+          })
+          .catch((error) => {
+            console.error("Error loading destinations:", error);
+            document.getElementById("destinationId").innerHTML =
+              '<option value="">Error loading destinations</option>';
+          });
+      });
+
+      // Handle quote form submission
+      document
+        .getElementById("quoteForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Show loading state
+          document.getElementById("submitText").style.display = "none";
+          document.getElementById("spinner").style.display = "inline-block";
+
+          // Hide any previous messages
+          document.getElementById("successMessage").style.display = "none";
+          document.getElementById("errorMessage").style.display = "none";
+
+          // Format date as DD-MM-YYYY
+          const dateInput = document.getElementById("start_date").value;
+          const [year, month, day] = dateInput.split("-");
+          const formattedDate = `${day}-${month}-${year}`;
+
+          // Prepare data for API
+          const formData = {
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            number_of_people: parseInt(
+              document.getElementById("number_of_people").value
+            ),
+            destinationId: parseInt(
+              document.getElementById("destinationId").value
+            ),
+            duration: parseInt(document.getElementById("duration").value),
+            start_date: formattedDate,
+            notes: document.getElementById("notes").value,
+            source: document.getElementById("source").value,
+          };
+
+          // Make API call
+          fetch("https://eziotravels.com/api/auth/quote_query", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+            .then((data) => {
+              // Show success message
+              document.getElementById("successMessage").style.display = "block";
+
+              // Reset form
+              document.getElementById("quoteForm").reset();
             })
-            .then(data => {
-                // Show success message
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Reset form
-                document.getElementById('quoteForm').reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('errorMessage').style.display = 'block';
+            .catch((error) => {
+              console.error("Error:", error);
+              document.getElementById("errorMessage").style.display = "block";
             })
             .finally(() => {
-                // Hide loading state
-                document.getElementById('submitText').style.display = 'inline';
-                document.getElementById('spinner').style.display = 'none';
-                
-                // Scroll to messages
-                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+              // Hide loading state
+              document.getElementById("submitText").style.display = "inline";
+              document.getElementById("spinner").style.display = "none";
+
+              // Scroll to messages
+              document
+                .getElementById("successMessage")
+                .scrollIntoView({ behavior: "smooth" });
             });
         });
     </script>
-</body>
+  </body>
 </html>

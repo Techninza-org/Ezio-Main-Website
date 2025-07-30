@@ -778,7 +778,8 @@ button.show-more:hover {
 
 .choose-card:hover {
   transform: translateY(-5px); /* Lift effect */
-  box-shadow: 0 4px 15px #0068ff; /* Shadow effect */
+  box-shadow: 0 4px 15px #00ff88ff; /* Shadow effect */
+  background: ;
 }
 
 .icon {
