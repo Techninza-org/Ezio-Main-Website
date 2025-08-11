@@ -1,221 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - EZIO TRAVELS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-      <link rel="stylesheet" href="footer.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="footer.css" />
+    
     <style>
-        .hero-section {
-           background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
-            padding: 100px 0;
-            color: white;
-        }
-        
-        .contact-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .contact-icon {
-           background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .form-section {
-            background: #f8f9fa;
-            padding: 60px 0;
-        }
-        
-        .map-container {
-            height: 400px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .contact-detail {
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
+        padding: 100px 0;
+        color: white;
+      }
 
-        .navbar {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
+      .contact-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
 
-.navbar-brand img {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
+      .contact-icon {
+        background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: white;
+        font-size: 1.5rem;
+      }
 
-.nav-link {
-  font-weight: 500;
-  color: #333 !important;
-  transition: all 0.3s ease;
-  position: relative;
-}
+      .form-section {
+        background: #f8f9fa;
+        padding: 60px 0;
+      }
 
-.nav-link:hover {
-  color: #56bc57 !important;
-  transform: translateY(-2px);
-}
+      .map-container {
+        height: 400px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
 
-.nav-link.active {
-  color: #56bc57 !important;
-}
+      .contact-detail {
+        margin-bottom: 1.5rem;
+      }
 
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 3px;
-  background: #56bc57;
-  border-radius: 2px;
-}
-.navbar-nav{
+      .contact-label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
 
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
-   
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/EZILogo.png" alt="EZI Logo" height="40">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="BlogPage.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="package.html">Package</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active " href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/EZILogo.png" alt="EZI Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Contact Us</h1>
-                    <p class="lead mb-4">We'd love to hear from you! Whether you're a traveler, a travel business, or a potential partner — the Ezio team is here to help.</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="text-center">
-                        <i class="fas fa-headset fa-10x opacity-25"></i>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mb-4">Contact Us</h1>
+            <p class="lead mb-4">
+              We'd love to hear from you! Whether you're a traveler, a travel
+              business, or a potential partner — the Ezio team is here to help.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="text-center">
+              <i class="fas fa-headset fa-10x opacity-25"></i>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Contact Info Section -->
     <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3 class="mb-4">Contact Details</h3>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-label">General Inquiries:</div>
-                            <div><i class="fas fa-envelope me-2"></i> <a href="mailto:namaste@eziotravels.com">namaste@eziotravels.com</a></div>
-                            <div><i class="fas fa-phone me-2"></i> <a href="tel:+919810833897">+91 98108 33897</a></div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-label">Business & Partnerships:</div>
-                            <div><i class="fas fa-envelope me-2"></i> <a href="mailto:soumitro@eziotravels.com">soumitro@eziotravels.com</a></div>
-                            <div><i class="fas fa-phone me-2"></i> <a href="tel:+919953570033">+91 99535 70033</a></div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-label">Technical Support:</div>
-                            <div><i class="fas fa-envelope me-2"></i> <a href="mailto:vinay@techninza.in">vinay@techninza.in</a> / <a href="mailto:gokul@techninza.in">gokul@techninza.in</a></div>
-                            <div><i class="fas fa-phone me-2"></i> <a href="tel:+918375910558">+91 83759 10558</a> / <a href="tel:+918178924823">+91 81789 24823</a></div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-label">Customer Support & Operations:</div>
-                            <div><i class="fas fa-envelope me-2"></i> <a href="mailto:operations@eziotravels.com">operations@eziotravels.com</a></div>
-                            <div><i class="fas fa-phone me-2"></i> <a href="tel:+919504434868">+91 95044 34868</a> / <a href="tel:+919110916765">+91 91109 16765</a></div>
-                        </div>
-                        
-                        <div class="mt-4">
-                            <p>You can also follow us on social media or use the chat option in the app for instant help.</p>
-                            <p class="fw-bold">Let's make travel smarter — together.</p>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3 class="mb-4">Contact Details</h3>
+
+              <div class="contact-detail">
+                <div class="contact-label">General Inquiries:</div>
+                <div>
+                  <i class="fas fa-envelope me-2"></i>
+                  <a href="mailto:namaste@eziotravels.com"
+                    >namaste@eziotravels.com</a
+                  >
                 </div>
-                
-                <div class="col-lg-6">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3 class="mb-4">Our Office</h3>
-                        <address>
-                            <strong>EZIO TRAVELS PRIVATE LIMITED</strong><br>
-                           REGUS WTT, TOWER B 16TH FLOOR <br>
-                             NOIDA 16, UP 201301
-                            India
-                        </address>
-                        <div class="map-container mt-4">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.3923111980835!2d77.31456387528692!3d28.57711287569506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce45adfcdd817%3A0x5ee1ce6b01b0126d!2sRegus%20-%20Noida%2C%20WTT!5e1!3m2!1sen!2sin!4v1752236508217!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
+                <div>
+                  <i class="fas fa-phone me-2"></i>
+                  <a href="tel:+919810833897">+91 98108 33897</a>
                 </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-label">Business & Partnerships:</div>
+                <div>
+                  <i class="fas fa-envelope me-2"></i>
+                  <a href="mailto:soumitro@eziotravels.com"
+                    >soumitro@eziotravels.com</a
+                  >
+                </div>
+                <div>
+                  <i class="fas fa-phone me-2"></i>
+                  <a href="tel:+919953570033">+91 99535 70033</a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-label">Technical Support:</div>
+                <div>
+                  <i class="fas fa-envelope me-2"></i>
+                  <a href="mailto:vinay@techninza.in">vinay@techninza.in</a> /
+                  <a href="mailto:gokul@techninza.in">gokul@techninza.in</a>
+                </div>
+                <div>
+                  <i class="fas fa-phone me-2"></i>
+                  <a href="tel:+918375910558">+91 83759 10558</a> /
+                  <a href="tel:+918178924823">+91 81789 24823</a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-label">Customer Support & Operations:</div>
+                <div>
+                  <i class="fas fa-envelope me-2"></i>
+                  <a href="mailto:operations@eziotravels.com"
+                    >operations@eziotravels.com</a
+                  >
+                </div>
+                <div>
+                  <i class="fas fa-phone me-2"></i>
+                  <a href="tel:+919504434868">+91 95044 34868</a> /
+                  <a href="tel:+919110916765">+91 91109 16765</a>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <p>
+                  You can also follow us on social media or use the chat option
+                  in the app for instant help.
+                </p>
+                <p class="fw-bold">Let's make travel smarter — together.</p>
+              </div>
             </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3 class="mb-4">Our Office</h3>
+              <address>
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong><br />
+                REGUS WTT, TOWER B 16TH FLOOR <br />
+                NOIDA 16, UP 201301 India
+              </address>
+              <div class="map-container mt-4">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.3923111980835!2d77.31456387528692!3d28.57711287569506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce45adfcdd817%3A0x5ee1ce6b01b0126d!2sRegus%20-%20Noida%2C%20WTT!5e1!3m2!1sen!2sin!4v1752236508217!5m2!1sen!2sin"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Form Section -->
@@ -261,135 +339,172 @@
     </section> -->
 
     <!-- Footer -->
-     <footer class="site-footer text-white py-5">
-        <div class="container">
-            <!-- Logo Section -->
-          
+    <footer class="site-footer text-white py-5">
+      <div class="container">
+        <!-- Logo Section -->
 
-            <div class="row">
-                <!-- About Us Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
-                              <div class="logo-container">
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
                 <a href="/">
-                    <img src="images/EZILogo.png" alt="EZI Logo" />
+                  <img src="images/EZILogo.png" alt="EZI Logo" />
                 </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for
+                exceptional travel experiences. We specialize in creating
+                memorable journeys with personalized service and competitive
+                prices.
+              </p>
+
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/TravelwithEZIO"
+                  target="_blank"
+                  class="social-link"
+                  title="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://x.com/eziotravels"
+                  class="social-link"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/travel_with_ezio/?hl=en"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ezio-travel/"
+                  target="_blank"
+                  class="social-link"
+                  title="LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
                   </div>
-                        <p class="footer-text">
-
-                            EZIO TRAVELS PRIVATE LIMITED is your trusted partner for exceptional travel experiences. 
-                            We specialize in creating memorable journeys with personalized service and competitive prices.
-                        </p>
-                    
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/profile.php?id=61561465412880" target="_blank" class="social-link" title="Facebook">
-                               <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="https://x.com/eziotravels" class="social-link" target="_blank"  title="Twitter">
-                               <i class="bi bi-twitter-x"></i>
-                            </a>
-                            <a href="https://www.instagram.com/eziotravels/?hl=en" target="_blank"  class="social-link" title="Instagram">
-                              <i class="bi bi-instagram"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank"  class="social-link" title="LinkedIn">
-                               <i class="bi bi-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-
-                <!-- Contact Us Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-building"></i>
-                                <div>
-                                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                   
-                                    REGUS WTT, TOWER B 16TH FLOOR,<br> NOIDA 16, UP 201301
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <a href="mailto:namaste@eziotravels.com" class="footer-link">namaste@eziotravels.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <a href="tel:+9198108 33897" class="footer-link">+91 98108 33897</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br />
+                    NOIDA 16, UP 201301
+                  </div>
                 </div>
-
-                <!-- Quick Links Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
-                        <div class="d-flex flex-column">
-                            <a href="./about.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>About Us
-                            </a>
-                             <a href="./BlogPage.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>Blog
-                            </a> 
-                            <a href="./index.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>Home
-                            </a> 
-                            <a href="./contact.html" class="footer-link">
-                                <i class="fas fa-chevron-right me-2"></i>Contact Us
-                            </a>
-                        </div>
-                    </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link"
+                      >namaste@eziotravels.com</a
+                    >
+                  </div>
                 </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link"
+                      >+91 98108 33897</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Legal & Policies Section -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
-                        <div class="d-flex flex-column">
-                            <a href="./privacyPolicy.html" class="footer-link" target="_blank">
-                                <i class="fas fa-user-shield me-2"></i>Privacy Policy
-                            </a>
-                            <a href="./term&condition.html" class="footer-link" target="_blank">
-                                <i class="fas fa-file-contract me-2"></i>Terms & Conditions
-                            </a>
-                            <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a>
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a>
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a
+                  href="./privacyPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a
+                  href="./term&condition.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+                <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
                                 <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
                             </a> -->
-                            <a href="./refundPolicy.html" class="footer-link" target="_blank">
-                                <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation Policy
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a
+                  href="./refundPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation
+                  Policy
+                </a>
+              </div>
             </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div >
-                        <p class="copyright-text mb-3">
-                            &copy; 2024 All Rights Reserved by <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
-                        </p>
-                    </div>
-                  
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text">
+                &copy; 2024 All Rights Reserved by
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

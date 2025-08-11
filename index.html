@@ -69,7 +69,11 @@
         }
         
         .footer-section h5 {
-            color: #3498db;
+           background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
             font-weight: 600;
             margin-bottom: 1.5rem;
             position: relative;
@@ -96,7 +100,11 @@
         }
         
         .footer-link:hover {
-            color: #3498db;
+            background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
             padding-left: 10px;
         }
         
@@ -132,7 +140,11 @@
         }
         
         .contact-item i {
-            color: #3498db;
+            background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
             width: 20px;
             margin-right: 15px;
             font-size: 1.1rem;
@@ -156,21 +168,24 @@
         .footer-bottom {
             background: rgba(0, 0, 0, 0.2);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
         }
-        
+
         .copyright-text {
             color: #95a5a6;
             font-size: 0.9rem;
             text-align: center;
         }
+
         
         .social-links {
             display: flex;
             justify-content: start;
-            gap: 15px;
-            margin-top: 1rem;
+            gap: 20px;
+            margin-top: 1.5rem;
         }
         
         .social-link {
@@ -179,16 +194,34 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+              background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
             border-radius: 50%;
-            color: #bdc3c7;
+            color: white;
             text-decoration: none;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .social-link:hover {
-            background: #3498db;
+            background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
@@ -310,13 +343,13 @@
                             <a class="nav-link active " href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="package.html">Package</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="BlogPage.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="package.html">Package</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="contact.html">Contact</a>
@@ -378,36 +411,37 @@
 
         <!-- Feature Cards -->
         <div class="feature-cards d-none d-lg-block">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <div class="feature-title">Discover Places</div>
-                        <div class="feature-text">Find hidden gems and popular destinations worldwide</div>
-                    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marked-alt"></i>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="feature-title">Meet Travellers</div>
-                        <div class="feature-text">Connect with like-minded adventurers on your journey</div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <div class="feature-title">Share Stories</div>
-                        <div class="feature-text">Document and share your travel experiences</div>
-                    </div>
-                </div>
+                <div class="feature-title">Explore Zone</div>
+                <div class="feature-text">Your journey starts here.</div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="feature-title">Inspire Other</div>
+                <div class="feature-text">Share stories. Spark wanderlust.</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="feature-title">Connect With Other</div>
+                <div class="feature-text">Meet travelers, make friends.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <!-- Scroll Indicator -->
         <!-- <div class="scroll-indicator d-none d-lg-block">
@@ -425,57 +459,49 @@
             </div>
 
             <!-- Right Column (Cards) -->
-            <div class="col-lg-6">
-                <div class="row g-3 justify-content-center">
-                    <!-- Card 1 -->
-                    <div class="col-6 col-md-3 mb-4">
-                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto">
-                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop" 
-                                 alt="Flight Booking" class="card-img-top custom-img" style="width: 100%; height: 40%;">
-                            <div class="card-overlay">
-                                <i class="fas fa-plane service-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="col-6 col-md-3 mb-4">
-                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto;">
-                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" 
-                                 alt="Hotel Booking" class="card-img-top custom-img" style="width: 100%; height: 40%;">
-                            <div class="card-overlay">
-                                <i class="fas fa-hotel service-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="col-6 col-md-3 mb-4">
-                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto;">
-                            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop" 
-                                 alt="Car Rental" class="card-img-top custom-img" style="width: 100%; height: 40%;">
-                            <div class="card-overlay">
-                                <i class="fas fa-car service-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="col-6 col-md-3 mb-4">
-                        <div class="card text-center custom-card shadow" style="width: 100%; height: auto">
-                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop" 
-                                 alt="Travel Packages" class="card-img-top custom-img" style="width: 100%; height: 40%;">
-                            <div class="card-overlay">
-                                <i class="fas fa-suitcase-rolling service-icon"></i>
-                            </div>
-                        </div>
-                    </div>
+          <div class="col-lg-6">
+    <div class="row g-3 justify-content-center">
+        <!-- Card 1 -->
+        <div class="col-6 col-md-3 mb-4 d-flex align-items-stretch">
+            <div class="card text-center custom-card shadow h-100 w-100">
+                <div class="card-img-top-container ratio ratio-1x1">
+                    <img src="/images/flight.jpg" alt="Flight Booking" class="img-fluid object-fit-cover">
+                </div>
+                <div class="card-overlay">
+                    <i class="fas fa-plane service-icon"></i>
                 </div>
             </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="col-6 col-md-3 mb-4 d-flex align-items-stretch">
+            <div class="card text-center custom-card shadow h-100 w-100">
+                <div class="card-img-top-container ratio ratio-1x1">
+                    <img src="images/hotel.jpg" alt="Hotel Booking" class="img-fluid object-fit-cover">
+                </div>
+                <div class="card-overlay">
+                    <i class="fas fa-hotel service-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-6 col-md-3 mb-4 d-flex align-items-stretch">
+            <div class="card text-center custom-card shadow h-100 w-100">
+                <div class="card-img-top-container ratio ratio-1x1">
+                    <img src="images/bus.png" alt="Car Rental" class="img-fluid object-fit-cover">
+                </div>
+                <div class="card-overlay">
+                    <i class="bi bi-bus-front-fill service-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
     </section>
 
-  <main class="container">
+  <!-- <main class="container">
 
     <div class="section-head col-sm-12" style="color: #56BC57;">
       <h4><span>Explore Ezio Travel App for </span> All In One Services</h4>
@@ -510,7 +536,7 @@
         <div class="overlay">
           <span><i class="bi bi-router-fill"></i></span>
           <div>
-            <!-- <h2>Barcelona</h2> -->
+           
             <p class="fs-5 fw-semibold">Social media platform</p>
           </div>
         </div>
@@ -521,7 +547,7 @@
         <div class="overlay">
           <span><i class="bi bi-router-fill"></i></span>
           <div>
-            <!-- <h2>Florence</h2> -->
+          
             <p class="fs-5 fw-semibold">Map View Connect</p>
           </div>
         </div>
@@ -542,7 +568,7 @@
         <div class="overlay">
           <span><i class="bi bi-backpack"></i></span>
           <div>
-            <!-- <h2>West Coast</h2> -->
+          
             <p class="fs-5 fw-semibold">Creator Feature</p>
           </div>
         </div>
@@ -553,7 +579,7 @@
         <div class="overlay">
           <span><i class="bi bi-phone-fill"></i></span>
           <div>
-            <!-- <h2>Venice</h2> -->
+          
             <p class="fs-5 fw-semibold">Community</p>
           </div>
         </div>
@@ -564,7 +590,7 @@
         <div class="overlay">
           <span><i class="bi bi-truck"></i></span>
           <div>
-            <!-- <h2>Venice</h2> -->
+          
             <p class="fs-5 fw-semibold">Travel Equipment Rentals</p>
           </div>
         </div>
@@ -579,7 +605,14 @@
         </div>
       </div>
     </div>
-  </main>
+  </main> -->
+
+   <div class=" mt-5 mb-5">
+    <img src="/images/ezioBanner.png" alt="Advertisement"  style="width: 100%; height: auto;">
+
+  </div>
+
+
   <div class="container mt-5 mb-5">
     <div class="row">
       <div class="section-head col-sm-12">
@@ -589,49 +622,103 @@
         </h4>
       </div>
 
-      <!-- Cards Section -->
+      
       <div class="col-md-6 d-flex justify-content-center align-items-center">
         <div class="row">
           <div class="col-6">
             <div class="card appcard" data-image="images/ss14.png">
-              <i class="bi bi-luggage-fill fs-1" style="color:#56BC57"></i>
+                <i class="bi bi-luggage-fill fs-1" style="background: linear-gradient(
+    135deg,
+    #1e8a9a,
+    #1f8b98,
+    #2c9888,
+    #34a07e,
+    #3da475,
+    #4bb368,
+    #56bc57
+  ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"></i>
               Explore Zone
             </div>
           </div>
           <div class=" col-6">
             <div class="card appcard" data-image="images/ss1.png">
-              <i class="bi bi-people-fill fs-1" style="color:#56BC57"></i>
+              <i class="bi bi-people-fill fs-1" style="background: linear-gradient(
+    135deg,
+    #1e8a9a,
+    #1f8b98,
+    #2c9888,
+    #34a07e,
+    #3da475,
+    #4bb368,
+    #56bc57
+  ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"></i>
               Trip plan
             </div>
           </div>
           <div class="col-6">
             <div class="card appcard" data-image="images/ss2.png">
-              <i class="bi bi-person-heart fs-1" style="color:#56BC57"></i>
+              <i class="bi bi-person-heart fs-1" style="background: linear-gradient(
+    135deg,
+    #1e8a9a,
+    #1f8b98,
+    #2c9888,
+    #34a07e,
+    #3da475,
+    #4bb368,
+    #56bc57
+  ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"></i>
               Connect other
             </div>
           </div>
           <div class="col-6">
             <div class="card appcard" data-image="images/ss6.png">
-              <i class="bi bi-phone-flip fs-1" style="color:#56BC57"></i>
+              <i class="bi bi-phone-flip fs-1" style="background: linear-gradient(
+    135deg,
+    #1e8a9a,
+    #1f8b98,
+    #2c9888,
+    #34a07e,
+    #3da475,
+    #4bb368,
+    #56bc57
+  ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"></i>
               Social Media Post
             </div>
           </div>
           <div class="col-6">
             <div class="card appcard" data-image="images/ss8.png">
-              <i class="bi bi-postcard-heart fs-1" style="color:#56BC57"></i>
+              <i class="bi bi-postcard-heart fs-1" style="background: linear-gradient(
+    135deg,
+    #1e8a9a,
+    #1f8b98,
+    #2c9888,
+    #34a07e,
+    #3da475,
+    #4bb368,
+    #56bc57
+  ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"></i>
               Customize Trips
             </div>
           </div>
           <div class="col-6">
             <div class="card appcard" data-image="images/ss9.png">
-              <i class="bi bi-emoji-smile-upside-down-fill fs-1" style="color:#56BC57"></i>
+              <i class="bi bi-emoji-smile-upside-down-fill fs-1" style="background: linear-gradient(
+    135deg,
+    #1e8a9a,
+    #1f8b98,
+    #2c9888,
+    #34a07e,
+    #3da475,
+    #4bb368,
+    #56bc57
+  ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"></i>
               Easy Connect the world
             </div>
           </div>
-          <!-- Add more cards if needed -->
+          
         </div>
       </div>
-      <!-- Phone Image Section -->
+     
       <div class="col-md-6 d-flex justify-content-center">
         <div class="phone-wrapper">
           <img id="phoneImage" src="images/ss14.png" alt="Phone Image" />
@@ -644,96 +731,83 @@
 
   <!-- why chooose us -->
 
-  <div class="feat pt-5 pb-5">
-    <div class="container">
-      <div class="row">
-        <div class="section-head col-sm-12 text-center">
-          <h4><span>Why Choose</span> Us?</h4>
-        </div>
-        <div class="col-lg-4 col-6 d-flex justify-content-center">
-          <div class="choose-card">
-            <span class="icon feature_box_col_one">
-              <img src="images/tra.png" />
-            </span>
-            <h6>The Ezio Travel App</h6>
-            <p>
-              The Ezio Travel App, designed for travellers, Discover new places, meet fellow travellers, and share your
-              journey with Ezio the ultimate travel social media app! is launching soon. Stay tuned for the ultimate
-              travel experience!
-          </div>
-        </div>
-        <div class="col-lg-4 col-6 d-flex justify-content-center">
-          <div class="choose-card">
-            <span class="icon feature_box_col_two">
-              <img src="images/explore.png" />
-            </span>
-            <h6>Explore Zone</h6>
-            <p>
-              Discover your Travel Destination with Explore Zone! Get itineraries created by various itinerary vendors
-              or create your own custom itinerary Choose from expertly crafted itineraries by top vendors. Explore more,
-              worry less!
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-6 d-flex justify-content-center">
-          <div class="choose-card">
-            <span class="icon feature_box_col_three">
-              <img src="images/inspire.png" />
-            </span>
-            <h6>Inspire Others</h6>
-            <p>
-              Our social travel platform, Inspire Others, on EZIO Travel App! Discover user posts, travel reels, and
-              travellers . Share your journeys, get inspired by fellow travellers, lets inspire each other to travel
-              more!
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-6 d-flex justify-content-center">
-          <div class="choose-card">
-            <span class="icon feature_box_col_four">
-              <img src="images/connect.png" />
-            </span>
-            <h6>Connect Other</h6>
-            <p>
-              With Connect Other on EZIO Travel App! View the locations of fellow travellers, connect through messaging,
-              and coordinate your adventures. Meet new friends, plan trips together, and explore the world with
-              like-minded explorers. Travel is better together!
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-6 d-flex justify-content-center">
-          <div class="choose-card">
-            <span class="icon feature_box_col_five">
-              <img src="images/pack.png" />
-            </span>
-            <h6>Full-On Package</h6>
-            <p>
-              Ezio Travel offers an all-in-one solution for your travel needs. From planning your itinerary to booking
-              hotels, rental equipment, and travel insurance, we provide seamless integration of services to ensure your
-              journey is hassle-free. Enjoy peace of mind with a platform that takes care of everything — so you can
-              focus on making memories.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-6 d-flex justify-content-center">
-          <div class="choose-card">
-            <span class="icon feature_box_col_six">
-              <img src="images/ai2.png" />
-            </span>
-            <h6>Travel Connect</h6>
-            <p>
+<div class="feat pt-5 pb-5">
+  <div class="container">
+    <div class="row g-3">
+      <div class="section-head col-sm-12 text-center mb-4">
+        <h4><span>Why Choose</span> Us?</h4>
+      </div>
 
-              Discover new connections and build your travel community with our innovative Map View feature. It allows
-              you to explore other travelers live at your destination, interact with fellow explorers, and even form
-              communities with like-minded adventurers. Wherever your travels take you, Ezio Travel ensures you’re never
-              alone on the journey.
-
-            </p>
-          </div>
+      <!-- Card 1 -->
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="choose-card h-100 text-center p-3">
+          <span class="icon feature_box_col_one d-block mb-2">
+            <img src="images/tra.png" />
+          </span>
+          <h6>The Ezio Travel App</h6>
+          <p>Travel. Connect. Share.</p>
         </div>
       </div>
+
+      <!-- Card 2 -->
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="choose-card h-100 text-center p-3">
+          <span class="icon feature_box_col_two d-block mb-2">
+            <img src="images/explore.png" />
+          </span>
+          <h6>Explore Zone</h6>
+          <p>Your journey starts here.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="choose-card h-100 text-center p-3">
+          <span class="icon feature_box_col_three d-block mb-2">
+            <img src="images/inspire.png" />
+          </span>
+          <h6>Inspire Others</h6>
+          <p>Share stories. Spark wanderlust.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="choose-card h-100 text-center p-3">
+          <span class="icon feature_box_col_four d-block mb-2">
+            <img src="images/connect.png" />
+          </span>
+          <h6>Connect Other</h6>
+          <p>Meet travelers, make friends.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="choose-card h-100 text-center p-3">
+          <span class="icon feature_box_col_five d-block mb-2">
+            <img src="images/pack.png" />
+          </span>
+          <h6>Full-On Package</h6>
+          <p>All-in-one travel solution.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="choose-card h-100 text-center p-3">
+          <span class="icon feature_box_col_six d-block mb-2">
+            <img src="images/ai2.png" />
+          </span>
+          <h6>AI Travel</h6>
+          <p>Let AI Be Your Travel Guide</p>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
+
   </section>
 
 
@@ -744,17 +818,34 @@
         margin-bottom: 20px;
        
     ">
-        <div style="text-align: center;">
+        <div style="display: flex; align-items: center; flex-direction: column;">
             <p id="elevate_freelance" style="
                 color: white;
-                font-size: 35px;
+                font-size: 30px;
                 font-weight: bold;
                 margin: 0px;
                 text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             ">
-                Stay connected with EZIO Travel App on all your favorite social platforms!
+                Stay Connected With EZIO Travel App On All Your Favorite Social Platforms!
             </p>
-        </div>
+
+              <div class="social-links"">
+                <a href="https://www.facebook.com/TravelwithEZIO" target="_blank" class="social-link" title="Facebook">
+                  <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://x.com/eziotravels" class="social-link" target="_blank" title="Twitter">
+                  <i class="bi bi-twitter-x" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://www.instagram.com/travel_with_ezio/?hl=en" target="_blank" class="social-link" title="Instagram">
+                  <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank" class="social-link" title="LinkedIn">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+
+                    
+                  </div>
     </div>
 
  <div class="image-grid Zigzag">
@@ -773,10 +864,10 @@
         <div class="image-item">
             <img src="./images/ss11.png" alt="Level Up">
         </div>
-        <!-- <div class="image-item">
-            <img src="./images/ss9.png" alt="Rewards">
-        </div> -->
+    
     </div>
+
+    
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -861,9 +952,7 @@
       },
     });
 
-    // JavaScript for hover effect and automatic image change
-
-    // Get the phone image element
+   
     const phoneImage = document.getElementById("phoneImage");
 
     // Function to change the phone image
@@ -902,16 +991,7 @@
       slidercurrentIndex = (slidercurrentIndex + 1) % images.length;
       changePhoneImage(images[slidercurrentIndex]);
     }, 1000);
-
-
-
-
-
-
-
-
-
-
+    
   </script>
   <script>
     // Function to validate email and phone
@@ -1005,10 +1085,7 @@
     });
   </script>
 
-  <div class=" mt-5 mb-5">
-    <img src="/images/ezioBanner.png" alt="Advertisement"  style="width: 100%; height: auto;">
-
-  </div>
+ 
 
 
 
@@ -1018,9 +1095,9 @@
 
 
   <!-- Blog Section -->
-  <div class="Investor container mt-5" id="blogs">
-    <h1 class="head display-4 text-center mt-5">
-      Featured <span style="color: #56BC57">Blog</span>
+  <div class="container mt-5" id="blogs">
+    <h1 class="head display-4 text-center mt-5 mb-5 fw-semibold ">
+      Featured <span style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">Blog</span>
     </h1>
     <div class="row" id="blogContainer">
       <!-- Blog cards will be inserted here -->
@@ -1064,13 +1141,13 @@
                         </p>
                     
                         <div class="social-links">
-                            <a href="https://www.facebook.com/profile.php?id=61561465412880" target="_blank" class="social-link" title="Facebook">
+                            <a href="https://www.facebook.com/TravelwithEZIO" target="_blank" class="social-link" title="Facebook">
                                <i class="bi bi-facebook"></i>
                             </a>
                             <a href="https://x.com/eziotravels" class="social-link" target="_blank"  title="Twitter">
                                <i class="bi bi-twitter-x"></i>
                             </a>
-                            <a href="https://www.instagram.com/eziotravels/?hl=en" target="_blank"  class="social-link" title="Instagram">
+                            <a href="https://www.instagram.com/travel_with_ezio/?hl=en" target="_blank"  class="social-link" title="Instagram">
                               <i class="bi bi-instagram"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/ezio-travel/" target="_blank"  class="social-link" title="LinkedIn">
@@ -1160,18 +1237,17 @@
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="row align-items-center">
-                    <div >
-                        <p class="copyright-text mb-0">
+                    <div>
+                        <p class="copyright-text">
                             &copy; 2024 All Rights Reserved by <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
                         </p>
                     </div>
-                  
                 </div>
             </div>
         </div>
     </footer>
 
-  <script> src = "https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
       $(document).ready(function () {
@@ -1198,16 +1274,16 @@
             const blogCard = `
     <div class="col-md-4 mb-4">
       <div class="card h-100" style="border: none; background-color: rgb(231, 240, 241);">
-        <div class="card-img-container" style="height: 10rem; overflow: hidden;">
+        <div class="card-img-container" style="height: 15rem; overflow: hidden;">
           <img src="${blog.image}" class="card-img-top img-fluid h-100 w-100" style="object-fit: cover;" alt="Blog Image" />
         </div>
-        <div class="card-body d-flex flex-column" style="min-height: 200px;">
-          <h4 class="card-title" style="text-align: left;">
+        <div class="card-body d-flex flex-column" style="min-height: 100px;">
+          <h4 class="card-title" style="text-align: left; font-size: 1.25rem; ">
             ${blog.title.split(" ").slice(0, 8).join(" ")}..
           </h4>
           <div class="mt-auto text-start">
             <a href="Blog.html?id=${blog.slug}">
-              <button class="btn" style="background-color: #56BC57; color: white;">Read more</button>
+              <button class="btn" style="background: linear-gradient(45deg, #1F8B98, #4caf50); color: white;">Read more</button>
             </a>
           </div>
         </div>
