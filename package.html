@@ -258,9 +258,9 @@
                   <label for="name" class="form-label fw-bold">
                     <i
                       class="fas fa-user me-2"
-                     style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Full Name
+                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
+                    ></i>
+                    Full Name
                   </label>
                   <input type="text" class="form-control" id="name" required />
                 </div>
@@ -270,8 +270,8 @@
                     <i
                       class="fas fa-phone me-2"
                       style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Phone Number
+                    ></i>
+                    Phone Number
                   </label>
                   <input type="tel" class="form-control" id="phone" required />
                 </div>
@@ -281,8 +281,8 @@
                     <i
                       class="fas fa-users me-2"
                       style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Number of People
+                    ></i>
+                    Number of People
                   </label>
                   <input
                     type="number"
@@ -293,43 +293,28 @@
                   />
                 </div>
 
-                <div class="mb-3">
-                  <label for="destinationId" class="form-label fw-bold">
+                <!-- <div class="mb-3">
+                  <label for="packageId" class="form-label fw-bold">
                     <i
-                      class="fas fa-map-marker-alt me-2"
+                      class="fas fa-box me-2"
                       style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Destination
+                    ></i>
+                    Package
                   </label>
-                  <select class="form-select" id="destinationId" required>
-                    <option value="">Loading destinations...</option>
+                  <select class="form-select" id="packageId" required>
+                    <option value="">Select a package</option>
+                    <option value="17">Package 17</option>
+             
                   </select>
-                </div>
-
-                <div class="mb-3">
-                  <label for="duration" class="form-label fw-bold">
-                    <i
-                      class="fas fa-calendar-days me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Duration (days)
-                  </label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="duration"
-                    min="1"
-                    required
-                  />
-                </div>
+                </div> -->
 
                 <div class="mb-3">
                   <label for="start_date" class="form-label fw-bold">
                     <i
                       class="fas fa-calendar-check me-2"
                       style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Travel Dates
+                    ></i>
+                    Travel Date
                   </label>
                   <input
                     type="date"
@@ -338,24 +323,6 @@
                     required
                   />
                 </div>
-
-                <div class="mb-3">
-                  <label for="notes" class="form-label fw-bold">
-                    <i
-                      class="fas fa-edit me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i
-                    >Special Requirements
-                  </label>
-                  <textarea
-                    class="form-control"
-                    id="notes"
-                    rows="3"
-                    placeholder="Any special requests or preferences"
-                  ></textarea>
-                </div>
-
-                <input type="hidden" id="source" value="WEBSITE" />
 
                 <button type="submit" class="btn btn-primary">
                   <span id="submitText">Submit Quote Request</span>
@@ -552,29 +519,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Fetch destinations from API and populate dropdown
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("https://eziotravels.com/api/destination")
-          .then((response) => response.json())
-          .then((data) => {
-            const select = document.getElementById("destinationId");
-            select.innerHTML = '<option value="">Select a destination</option>';
-
-            data.destinations.forEach((destination) => {
-              const option = document.createElement("option");
-              option.value = destination.id;
-              option.textContent = destination.destination;
-              select.appendChild(option);
-            });
-          })
-          .catch((error) => {
-            console.error("Error loading destinations:", error);
-            document.getElementById("destinationId").innerHTML =
-              '<option value="">Error loading destinations</option>';
-          });
-      });
-
-      // Handle quote form submission
+  // Handle package quote form submission (only required fields)
       document
         .getElementById("quoteForm")
         .addEventListener("submit", function (e) {
@@ -588,28 +533,31 @@
           document.getElementById("successMessage").style.display = "none";
           document.getElementById("errorMessage").style.display = "none";
 
-          // Format date as DD-MM-YYYY
-          const dateInput = document.getElementById("start_date").value;
-          const [year, month, day] = dateInput.split("-");
-          const formattedDate = `${day}-${month}-${year}`;
-
-          // Prepare data for API
+          // Prepare data (keep date in YYYY-MM-DD as provided by input)
           const formData = {
-            name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value,
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
             number_of_people: parseInt(
-              document.getElementById("number_of_people").value
+              document.getElementById("number_of_people").value,10
             ),
-            destinationId: parseInt(
-              document.getElementById("destinationId").value
-            ),
-            duration: parseInt(document.getElementById("duration").value),
-            start_date: formattedDate,
-            notes: document.getElementById("notes").value,
-            source: document.getElementById("source").value,
+            // packageId: parseInt(document.getElementById("packageId").value,10),
+            packageId: 17,
+            start_date: document.getElementById("start_date").value,
+            source: "WEBSITE"
+
           };
 
-          // Make API call
+          // Basic validation guard (in case of manual tampering)
+          if (!formData.packageId) {
+            document.getElementById("errorMessage").textContent =
+              "Please select a package.";
+            document.getElementById("errorMessage").style.display = "block";
+            document.getElementById("submitText").style.display = "inline";
+            document.getElementById("spinner").style.display = "none";
+            return;
+          }
+
+          // Make API call (adjust endpoint if needed)
           fetch("https://eziotravels.com/api/auth/quote_query", {
             method: "POST",
             headers: {
@@ -632,7 +580,10 @@
             })
             .catch((error) => {
               console.error("Error:", error);
-              document.getElementById("errorMessage").style.display = "block";
+              const errEl = document.getElementById("errorMessage");
+              errEl.style.display = "block";
+              errEl.textContent =
+                "There was an error submitting your request. Please try again.";
             })
             .finally(() => {
               // Hide loading state
