@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="footer.css" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
       :root {
         --primary-color: #667eea;
@@ -79,8 +80,6 @@
             background-color: #f8f9fa;
         }
 
-       
-
         /* Breadcrumb */
         .breadcrumb-section {
             background: white;
@@ -118,6 +117,14 @@
         .package-subtitle {
             color: #666;
             margin-bottom: 30px;
+        }
+
+        /* Package Description Styles */
+        #packageDescription {
+            line-height: 1.6;
+            color: #666;
+            font-size: 1rem;
+            white-space: pre-line;
         }
 
         /* Image Gallery */
@@ -184,7 +191,6 @@
         }
 
         /* Price Card */
-
         .price-card {
             background: white;
             border-radius: 15px;
@@ -212,7 +218,16 @@
         }
 
         .cta-button {
-            background: #23ce6b;
+             background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
             color: white;
             border: none;
             padding: 15px 30px;
@@ -229,11 +244,10 @@
 
         /* Content Sections */
         .content-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-           border: 1px solid #e9ecef;
+          
+          
+            margin-bottom: 20px;
+           /* border: 1px solid #e9ecef; */
         }
         .content-section-main {
             background: white;
@@ -253,7 +267,6 @@
         }
 
         /* Activity Styles */
-
         .activity-item {
             display: flex;
             gap: 15px;
@@ -287,6 +300,14 @@
             margin: 0;
             font-size: 0.95rem;
             line-height: 1.5;
+        }
+
+        /* Hotel image styling */
+        .activity-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: auto;
         }
 
         /* Itinerary Styles */
@@ -576,6 +597,31 @@
             margin-right: 10px;
         }
 
+        /* Destination Guide Styles */
+        .destination-guide-content {
+            margin-top: 20px;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #23ce6b;
+            background-color: #e8f7f0;
+        }
+
+        .accordion-body {
+            background-color: #fff;
+            color: #666;
+        }
+
+        #destinationGuideSection {
+            display: none;
+        }
+
         /* Footer */
         .footer {
             background: #2c3e50;
@@ -772,18 +818,20 @@
                 <div class="col-lg-8">
                     <!-- Package Header -->
                     <div class="content-section">
-                        <h1 class="package-title" id="packageTitle">Andaman Adventures</h1>
-                        <div class="package-subtitle" id="packageSubtitle">7D/6N Andaman and Nicobar Islands • Beach</div>
+                        <h1 class="package-title" id="packageTitle"></h1>
+                        <div class="package-subtitle" id="packageSubtitle"></div>
+                          <!-- Package Description -->
+                            <div class="content-section">
+                                <h2 class="section-title">Package Description</h2>
+                                <p id="packageDescription"></p>
+                            </div>
                         
                         <!-- Image Gallery -->
                         <div class="image-gallery">
                             <div class="main-image" id="mainImage" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/65b1cd264941b04d39fa43f3319d34b2eaff9b4da8df8c77d3cd582b5a4c4e2c');"></div>
-                            <div class="thumbnail-grid" id="thumbnailGrid">
-                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/65b1cd264941b04d39fa43f3319d34b2eaff9b4da8df8c77d3cd582b5a4c4e2c');"></div>
-                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/0328872e970e0d9d8460dd85278e3b21aa012dd8dca51e6fd9601f5c0730af17');"></div>
-                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/6cb2348b6a0a38109a1261228892c4238c6599632df2191686093192a93e4309');"></div>
-                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/103bfcff80cf5d7a8d0ba486615a3fd5624ed0739115d0bbc998c2e1094a7c80');"></div>
-                            </div>
+                            <!-- <div class="thumbnail-grid" id="thumbnailGrid">
+                              
+                            </div> -->
                         </div>
                     </div>
 
@@ -804,6 +852,13 @@
 
                             <div id="itineraryDays" class="itinerary-days"></div>
                                 <!-- Itinerary days will be populated by JavaScript -->
+                            </div>
+                            <!-- Destination Guide Section -->
+                            <div class="content-section" id="destinationGuideSection">
+                                <h2 class="section-title">Destination Guide</h2>
+                                <div id="destinationGuide" class="destination-guide-content">
+                                    <!-- Destination guide content will be populated by JavaScript -->
+                                </div>
                             </div>
                         </div>
 
@@ -889,7 +944,7 @@
                     <!-- Right Column - Price Card -->
                     <div class="col-lg-4">
                         <div class="price-card">
-                            <div class="price-amount" id="packagePrice">₹49,135</div>
+                            <div class="price-amount" id="packagePrice"></div>
                             <div class="price-per">per person</div>
                             <div class="price-note">* Price may vary based on season and availability</div>
                             <button class="cta-button" id="getQuotationBtn">
@@ -1094,6 +1149,7 @@
                 const response = await fetch(`${API_CONFIG.baseURL}/${packageId}`);
                 if (!response.ok) throw new Error('Failed to fetch package data');
                 const result = await response.json();
+                console.log('Package data fetched:', result);
                 return result.package; // Return the package data from the response
             } catch (error) {
                 console.error('Error fetching package data:', error);
@@ -1108,6 +1164,11 @@
                 document.getElementById('packageSubtitle').textContent = `${data.days}D/${data.nights}N ${data.state} • ${data.category}`;
                 document.getElementById('packagePrice').textContent = `₹${data.price?.toLocaleString() || '49,135'}`;
                 
+                // Update package description
+                if (data.description) {
+                    document.getElementById('packageDescription').textContent = data.description;
+                }
+                
                 // Update images if provided
                 if (data.images && data.images.length > 0) {
                     // Set main image (cover image)
@@ -1115,15 +1176,15 @@
                     document.getElementById('mainImage').style.backgroundImage = `url('${coverImage.url}')`;
                     
                     // Update thumbnails
-                    const thumbnailGrid = document.getElementById('thumbnailGrid');
-                    thumbnailGrid.innerHTML = '';
-                    data.images.slice(0, 4).forEach(image => {
-                        const thumbnail = document.createElement('div');
-                        thumbnail.className = 'thumbnail';
-                        thumbnail.style.backgroundImage = `url('${image.url}')`;
-                        thumbnail.onclick = () => changeMainImage(thumbnail);
-                        thumbnailGrid.appendChild(thumbnail);
-                    });
+                    // const thumbnailGrid = document.getElementById('thumbnailGrid');
+                    // thumbnailGrid.innerHTML = '';
+                    // data.images.slice(0, 4).forEach(image => {
+                    //     const thumbnail = document.createElement('div');
+                    //     thumbnail.className = 'thumbnail';
+                    //     thumbnail.style.backgroundImage = `url('${image.url}')`;
+                    //     thumbnail.onclick = () => changeMainImage(thumbnail);
+                    //     thumbnailGrid.appendChild(thumbnail);
+                    // });
                 }
             }
         }
@@ -1136,7 +1197,7 @@
                 infoContainer.innerHTML = `
                     <div class="info-item">
                         <span class="info-label">Destination</span>
-                        <input type="text" class="form-control" value="${data.state}" readonly>
+                        <input type="text" class="form-control" value="${data.city}" readonly>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Nights</span>
@@ -1173,7 +1234,7 @@
                 daysContainer.innerHTML = '';
                 
                 data.itinerary.forEach((day, index) => {
-                    // Create hotel info section
+                    // Create hotel info section with image support
                     let hotelInfo = '';
                     if (day.hotel) {
                         hotelInfo = `
@@ -1187,6 +1248,23 @@
                                 </div>
                             </div>
                         `;
+                        
+                        // Add hotel image if available
+                        if (day.hotelImage) {
+                            hotelInfo += `
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h5>Hotel Image</h5>
+                                        <div style="margin-top: 10px;">
+                                            <img src="${day.hotelImage}" alt="Hotel Image" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
                     }
                     
                     // Create meal info section
@@ -1212,11 +1290,30 @@
                         }
                     }
                     
+                    // Create location info section
+                    let locationInfo = '';
+                    if (day.location) {
+                        locationInfo = `
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h5>Location</h5>
+                                    <p>${day.location}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
                     // Create activities section with grid layout for images
                     let activitiesHTML = '';
                     if (day.activities && day.activities.length > 0) {
+                        // Add "Today's Activities" heading
+                        activitiesHTML = `<h3 class="day-header" style="margin-top: 20px; border-left: 3px solid #23ce6b; padding-left: 15px;">${day.title}</h3>`;
+                        
                         // Group activities into grid format
-                        activitiesHTML = `
+                        activitiesHTML += `
                             <div class="activities-grid">
                                 ${day.activities.map(activity => `
                                     <div class="activity-grid-item">
@@ -1229,11 +1326,30 @@
                                         `}
                                         <div class="activity-grid-content">
                                             <h5>${activity.title}</h5>
-                                            <p>${activity.description}</p>
+                                            <p>${activity.description || ''}</p>
                                         </div>
                                     </div>
                                 `).join('')}
                             </div>
+                        `;
+                    }
+                    
+                    // Create counts section
+                    let countsHTML = '';
+                    const hotelCount = day.hotel ? 1 : 0;
+                    const activitiesCount = day.activities ? day.activities.length : 0;
+                    const mealsCount = day.meals ? 
+                        (day.meals.breakfast ? 1 : 0) + 
+                        (day.meals.lunch ? 1 : 0) + 
+                        (day.meals.dinner ? 1 : 0) : 0;
+                    
+                    if (hotelCount > 0 || activitiesCount > 0 || mealsCount > 0) {
+                        countsHTML = `
+                        <div style="background: #e8f7f0; border-left: 3px solid #23ce6b; padding: 8px 12px; font-size: 0.95rem; color: #333; margin: 15px 0;">
+                            ${hotelCount > 0 ? `<span style="margin-right: 10px;"><i class="fas fa-hotel"></i> ${hotelCount} Hotel</span>` : ''}
+                            ${activitiesCount > 0 ? `<span style="margin-right: 10px;"><i class="fas fa-walking"></i> ${activitiesCount} Activities</span>` : ''}
+                            ${mealsCount > 0 ? `<span><i class="fas fa-utensils"></i> ${mealsCount} Meals</span>` : ''}
+                        </div>
                         `;
                     }
                     
@@ -1243,6 +1359,8 @@
                     dayElement.innerHTML = `
                         <div class="day-header">Day ${day.dayNumber} • ${day.title}</div>
                         <p>${day.summary || ''}</p>
+                        ${countsHTML}
+                        ${locationInfo}
                         ${hotelInfo}
                         ${mealInfo}
                         ${activitiesHTML}
@@ -1308,6 +1426,48 @@
             }
         }
 
+        // Update destination guide
+        function updateDestinationGuide(data) {
+            console.log('Updating destination guide with data:', data);
+            const guideSection = document.getElementById('destinationGuideSection');
+            if (data && data.destination_guide && data.destination_guide.length > 0) {
+                console.log('Destination guide data found, updating UI');
+                const guideContainer = document.getElementById('destinationGuide');
+                if (guideContainer) {
+                    guideContainer.innerHTML = `
+                        <div class="accordion" id="destinationGuideAccordion">
+                            ${data.destination_guide.map((item, index) => `
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading${index}">
+                                        <button class="accordion-button${index === 0 ? '' : ' collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="collapse${index}">
+                                            ${item.title}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse${index}" class="accordion-collapse collapse${index === 0 ? ' show' : ''}" aria-labelledby="heading${index}" data-bs-parent="#destinationGuideAccordion">
+                                        <div class="accordion-body">
+                                            ${item.whatToExpect || item.overview || ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    // Show the destination guide section
+                    if (guideSection) {
+                        guideSection.style.display = 'block';
+                    }
+                } else {
+                    console.error('Destination guide container not found');
+                }
+            } else {
+                console.log('No destination guide data found');
+                // Hide the destination guide section if there's no data
+                if (guideSection) {
+                    guideSection.style.display = 'none';
+                }
+            }
+        }
+
         // Tab functionality
         function showTab(tabName, clickedButton) {
             // Hide all tabs
@@ -1350,14 +1510,17 @@
 
         // Initialize the page
         async function initializePage() {
+            console.log('Initializing page...');
             // Show loading state
             document.getElementById('packageTitle').textContent = 'Loading...';
             
             // Load package data
             const packageData = await fetchPackageData();
+            console.log('Package data received:', packageData);
             if (packageData) {
                 updatePackageHeader(packageData);
                 updateItinerary(packageData);
+                updateDestinationGuide(packageData);
                 updateSummary(packageData);
                 updatePolicies(packageData);
                 

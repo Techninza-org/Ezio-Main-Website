@@ -209,11 +209,6 @@
         color: #2c3e50;
         font-size: 0.9rem;
       }
-      .state-package-count{
-        font-size: 0.8rem;
-        opacity: 0.8;
-        color: #1a1a1a;
-      }
 
       /* Domestic Location Cards - Updated to match package design */
       .location-card {
@@ -460,6 +455,11 @@
         .location-price-section {
           text-align: center;
         }
+        .state-package-count{
+        font-size: 0.8rem;
+        opacity: 0.8;
+        color: #1a1a1a !important;
+      }
         
         .location-price {
           font-size: 1.3rem;
@@ -640,8 +640,8 @@
     <section class="section-container">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">States</h2>
-          <a href="/bharat-package/states.html" class="view-all-btn"
+          <h2 class="section-title">Countries</h2>
+          <a href="/inter-package/countries.html" class="view-all-btn"
             >View All</a
           >
         </div>
@@ -652,7 +652,7 @@
         </div>
 
         <div class="error-message" id="statesError">
-          <p>Failed to load states. Please try again later.</p>
+          <p>Failed to load Countries. Please try again later.</p>
         </div>
 
         <div class="row g-4" id="statesContainer">
@@ -713,8 +713,8 @@
     <section class="section-container">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Domestic Locations</h2>
-          <div  style="cursor: pointer"  class="view-all-btn" onclick="loadAllPackages()"
+          <h2 class="section-title">International Locations</h2>
+          <div  style="cursor: pointer" class="view-all-btn" onclick="loadAllPackages()"
             >View All</div
           >
         </div>
@@ -904,7 +904,7 @@
     <script>
       // API Configuration
       const API_CONFIG = {
-        baseURL: "https://eziotravels.com/api/web/domestic_packages_home",
+        baseURL: "https://eziotravels.com/api/web/international_packages_home",
       };
 
       // State management
@@ -955,7 +955,7 @@
 
           // Process API data
           categories = data.categories || [];
-          states = data.states || [];
+          states = data.countries || [];
           packages = data.packages || [];
 
           // Render all sections
@@ -1002,12 +1002,12 @@
         }
 
         // Show only 8 categories
-        const displayCategories = categories.slice(0, 8);
+        const displayCategories = categories;
 
         displayCategories.forEach((category) => {
           const packageCard = `
                     <div class="col-6 col-md-3">
-                        <a href="./domestic.html?category=${encodeURIComponent(
+                        <a href="./inter.html?category=${encodeURIComponent(
                           category.name
                         )}" style="text-decoration: none;">
                         <div class="package-card" data-package-id="${
@@ -1038,12 +1038,12 @@
         }
 
         // Take top 8 states from API (no sorting, just first 8)
-        const displayStates = states.slice(0, 8);
+        const displayStates = states;
 
         displayStates.forEach((state) => {
           const stateCard = `
                     <div class="col-6 col-md-3">
-                        <a href="./domestic.html?state=${encodeURIComponent(
+                        <a href="./inter.html?country=${encodeURIComponent(
                           state.name
                         )}" style="text-decoration: none;">
                         <div class="state-card" data-state-id="${state.id}">
@@ -1052,7 +1052,7 @@
                               "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
                             }')"></div>
                             <div class="state-name">${state.name}</div>
-                            <div class="state-package-count">${state.packageCount} Packages</div>
+                             <div class="state-package-count">${state.packageCount} Packages</div>
                         </div>
                         </a>
                     </div>

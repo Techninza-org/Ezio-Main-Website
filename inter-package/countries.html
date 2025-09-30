@@ -133,7 +133,11 @@
             color: #333;
             font-weight: 600;
         }
-        
+          .state-package-count{
+        font-size: 0.8rem;
+        opacity: 0.8;
+        color: #1a1a1a;
+      }
         .state-card {
             text-align: center;
             margin-bottom: 40px;
@@ -168,12 +172,9 @@
             margin-bottom: 5px;
         }
         
-        
         .state-packages {
             font-size: 0.9rem;
-            color:#1a1a1a;
-            opacity: 0.8;
-            
+            color: #666;
         }
         
         .loading-spinner {
@@ -299,7 +300,7 @@
     <div class="states-container">
         <div class="container">
             <div class="section-title">
-                <h2>States & Union Territories</h2>
+                <h2>All Countries</h2>
             </div>
 
             <div class="loading-spinner">
@@ -490,7 +491,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         // API Configuration
-        const API_BASE_URL = 'https://eziotravels.com/api/web/get-all-states';
+        const API_BASE_URL = 'https://eziotravels.com/api/web/get-all-countries';
         
         // State management
         let allStates = [];
@@ -514,7 +515,7 @@
                 }
                 
                 const data = await response.json();
-                allStates = data.states || [];
+                allStates = data.countries || [];
                 
                 renderStates(allStates); // Directly render all states
                 loadingSpinner.style.display = 'none';
@@ -539,7 +540,7 @@
                         <div class="state-card">
                             <img src="${state.image}" alt="${state.name}" class="state-image" onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop&crop=center'">
                             <div class="state-name">${state.name}</div>
-                            <div class="state-packages">${state.packageCount} Packages</div>
+                             <div class="state-package-count">${state.packageCount} Packages</div>
                         </div>
                     </a>
                 </div>

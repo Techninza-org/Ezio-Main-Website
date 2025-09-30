@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Domestic Packages - Travel India</title>
+    <title>International Packages - Travel the World</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -92,7 +92,6 @@
       .hero-section h1 {
         font-size: 2.2rem;
         font-weight: 700;
-        margin-top: 25px;
         margin-bottom: 15px;
       }
 
@@ -396,7 +395,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="../index.html">
+        <a class="navbar-brand" href="./index.html">
           <img src="../images/EZILogo.png" alt="EZI Logo" height="40" />
         </a>
         <button
@@ -430,7 +429,7 @@
     </nav>
     <section class="hero-section">
       <div class="container">
-        <h1>Domestic Packages</h1>
+        <h1>International Packages</h1>
         <p>
           Fill out the form below and our travel experts will create a
           customized itinerary just for you.
@@ -443,11 +442,11 @@
       <div class="row mb-4 mt-2 justify-content-end">
         <div class="col-md-3">
           <select
-            id="cityFilter"
+            id="countryFilter"
             class="form-select rounded-lg"
-            onchange="filterByCity()"
+            onchange="filterByCountry()"
           >
-            <option value="">All Cities</option>
+            <option value="">All Countries</option>
           </select>
         </div>
       </div>
@@ -688,51 +687,51 @@
         try {
           let packages = [];
 
-          // Check for category or state parameter
+          // Check for category or country parameter
           const category = getUrlParameter("category");
-          const state = getUrlParameter("state");
+          const country = getUrlParameter("country");
 
           if (category) {
             // Load packages by category
             const response = await fetch(
-              `${API_BASE_URL}/domestic_by_category/${category}`
+              `${API_BASE_URL}/intl_by_category/${category}`
             );
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
             packages = data.packages || [];
-            availableCities = data.cities || [];
-          } else if (state) {
-            // Load packages by state
+            availableCities = data.countries || [];
+          } else if (country) {
+            // Load packages by country
             const response = await fetch(
-              `${API_BASE_URL}/domestic_by_state/${state}`
+              `${API_BASE_URL}/intl_by_country/${country}`
             );
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
             packages = data.packages || [];
-            availableCities = data.cities || [];
+            availableCities = data.countries || [];
           } else {
-            // Load all domestic packages (fallback)
+            // Load all international packages (fallback)
             const response = await fetch(
-              `${API_BASE_URL}/domestic_packages_home`
+              `${API_BASE_URL}/international_packages_home`
             );
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
             packages = data.packages || [];
-            availableCities = data.cities || [];
+            availableCities = data.countries || [];
           }
 
           // Process API data
           allPackages = processPackagesData(packages);
           filteredPackages = [...allPackages];
 
-          // Populate city filter
-          populateCityFilter();
+          // Populate country filter
+          populateCountryFilter();
 
           // Render packages
           renderPackages(filteredPackages);
@@ -762,12 +761,16 @@
           const days = pkg.days || 1;
           const nights = pkg.nights || 0;
 
+          // Get country information
+          const country = pkg.country || "International";
+
           return {
             id: pkg.id,
             title: pkg.name,
             state: pkg.state,
             city: pkg.city,
-            location: `${pkg.city}, ${pkg.state}`,
+            country: country,
+            location: `${pkg.city ? pkg.city + ", " : ""}${country}`,
             image: coverImage.url,
             duration: `${days} Day${days > 1 ? "s" : ""}`,
             currentPrice: totalPrice,
@@ -780,39 +783,39 @@
         });
       }
 
-      // Populate city filter
-      function populateCityFilter() {
-        const cityFilter = document.getElementById("cityFilter");
+      // Populate country filter
+      function populateCountryFilter() {
+        const countryFilter = document.getElementById("countryFilter");
 
-        // Populate cities
+        // Populate countries
         if (availableCities.length > 0) {
-          cityFilter.innerHTML =
-            '<option value="">All Cities</option>' +
+          countryFilter.innerHTML =
+            '<option value="">All Countries</option>' +
             availableCities
-              .map((city) => `<option value="${city}">${city}</option>`)
+              .map((country) => `<option value="${country}">${country}</option>`)
               .join("");
         } else {
-          // Fallback to unique cities from packages
-          const cities = [
-            ...new Set(allPackages.map((pkg) => pkg.city)),
+          // Fallback to unique countries from packages
+          const countries = [
+            ...new Set(allPackages.map((pkg) => pkg.country)),
           ].sort();
-          cityFilter.innerHTML =
-            '<option value="">All Cities</option>' +
-            cities
-              .map((city) => `<option value="${city}">${city}</option>`)
+          countryFilter.innerHTML =
+            '<option value="">All Countries</option>' +
+            countries
+              .map((country) => `<option value="${country}">${country}</option>`)
               .join("");
         }
       }
 
-      // Filter packages by city
-      function filterByCity() {
-        const cityFilter = document.getElementById("cityFilter");
-        const selectedCity = cityFilter.value;
+      // Filter packages by country
+      function filterByCountry() {
+        const countryFilter = document.getElementById("countryFilter");
+        const selectedCountry = countryFilter.value;
 
         let filtered = [];
 
-        if (selectedCity) {
-          filtered = allPackages.filter((pkg) => pkg.city === selectedCity);
+        if (selectedCountry) {
+          filtered = allPackages.filter((pkg) => pkg.country === selectedCountry);
         } else {
           filtered = [...allPackages];
         }
@@ -850,8 +853,8 @@
                                         ${pkg.days}D/${pkg.nights}N
                                     </span>
                                     <span>
-                                        <i class="fas fa-city"></i>
-                                        ${pkg.city}
+                                        <i class="fas fa-globe"></i>
+                                        ${pkg.country}
                                     </span>
                                     ${pkg.providedBy ? `
                                     <span>
@@ -863,7 +866,7 @@
                             </div>
                             <div class="package-price-section">
                                <div class="current-price">₹${pkg.currentPrice.toLocaleString()}</div>
-                               <div class="tax-info">${pkg.tax} Taxes & fees per person</div>
+                               <div class="tax-info">${pkg.tax > 0 ? `+ ₹${pkg.tax.toLocaleString()} ` : ''}Taxes & fees per person</div>
                             </div>
                         </div>
                     </div>

@@ -12,8 +12,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-      <link rel="stylesheet" href="/footer.css" />
+    <link rel="stylesheet" href="/footer.css" />
     <style>
       :root {
         --primary-color: #667eea;
@@ -73,12 +77,9 @@
         align-items: center;
         gap: 3rem;
       }
-     
     </style>
-    
+
     <style>
-
-
       .hero-section {
         background: linear-gradient(
           135deg,
@@ -113,6 +114,7 @@
       .hero-section h1 {
         font-size: 2.8rem;
         font-weight: 700;
+        margin-top: 35px;
         margin-bottom: 20px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         max-width: 800px;
@@ -198,6 +200,7 @@
         justify-content: space-between;
         align-items: center;
         margin: 60px 0 40px 0;
+        padding-top: 20px; /* Add padding to account for fixed navbar */
       }
 
       .section-title {
@@ -217,6 +220,18 @@
 
       .view-all-link:hover {
         color: #1e7e34;
+      }
+
+      /* Adjust for mobile */
+      @media (max-width: 768px) {
+        .section-header {
+          margin: 40px 0 30px 0;
+          padding-top: 30px; /* More padding on mobile for navbar */
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
       }
 
       .destination-card {
@@ -275,6 +290,101 @@
         font-weight: 700;
       }
 
+      /* Package Card Styles (Individual Packages) - Updated for price on right side */
+      .package-card {
+        background: white;
+        padding: 20px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 25px;
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        height: 100%;
+      }
+
+      .package-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .package-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-radius: 16px;
+        margin-bottom: 15px;
+      }
+
+      .package-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(82, 196, 160, 0.9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .package-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+      }
+
+      .package-info {
+        flex: 1;
+        text-align: left;
+      }
+
+      .destination-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 5px;
+        line-height: 1.3;
+        text-align: left;
+      }
+
+      .package-meta {
+        display: flex;
+        gap: 15px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .package-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .package-meta i {
+        color: #52c4a0;
+      }
+
+      .package-price-section {
+        text-align: right;
+      }
+
+      .current-price {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+      }
+
+      .tax-info {
+        font-size: 0.8rem;
+        color: #666;
+        text-align: right;
+        margin-top: 3px;
+      }
+
       /* Scrollable packages container */
       .packages-scroll-container {
         display: flex;
@@ -304,10 +414,59 @@
         width: calc(50% - 10px); /* Two cards per row with gap */
       }
 
-      /* For smaller screens */
+      /* Responsive improvements for package cards */
       @media (max-width: 768px) {
         .packages-scroll-container .col-lg-3 {
           width: calc(100% - 10px); /* One card per row on mobile */
+        }
+
+        .package-content {
+          flex-direction: column;
+        }
+
+        .package-info {
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .package-meta {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .package-price-section {
+          text-align: center;
+        }
+
+        .tax-info {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .package-meta {
+          gap: 10px;
+          font-size: 0.8rem;
+        }
+
+        .package-meta span {
+          gap: 3px;
+        }
+
+        .current-price {
+          font-size: 1.3rem;
+        }
+
+        .tax-info {
+          font-size: 0.75rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .package-meta {
+          flex-direction: column;
+          gap: 5px;
+          align-items: center;
         }
       }
 
@@ -492,6 +651,14 @@
           font-size: 1.4rem;
         }
       }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
@@ -547,32 +714,32 @@
       <div class="container">
         <div class="row justify-content-center gap-5">
           <div class="col-lg-6 main-package-card">
-            <a
-              href="/bharat-package/bharat-package.html"
-              style="text-decoration: none"
-            >
-              <div class="bharat-edition">
+            <a href="bharat-package/bharat-package.html">
+              <div class="bharat-edition" style="cursor: pointer">
                 <div class="package-image">
                   <!-- <i class="fas fa-flag-india package-icon"></i> -->
                 </div>
                 <div class="package-title">
-                  <h3>Domestic Packages</h3>
+                  <h3>Bharat Editions</h3>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-6 main-package-card">
-            <div
-              class="international-edition"
-              onclick="filterPackages('international')"
-            >
-              <div class="package-image">
-                <!-- <i class="fas fa-globe package-icon"></i> -->
+            <a href="inter-package/inter-package.html">
+              <div
+                class="international-edition"
+                onclick="filterPackages('international')"
+                style="cursor: pointer"
+              >
+                <div class="package-image">
+                  <!-- <i class="fas fa-globe package-icon"></i> -->
+                </div>
+                <div class="package-title">
+                  <h3>International Editions</h3>
+                </div>
               </div>
-              <div class="package-title">
-                <h3>International Packages</h3>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -583,12 +750,7 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Domestic Locations</h2>
-          <a
-            href="#"
-            class="view-all-link"
-            onclick="showAllPackages('domestic')"
-            >View All</a
-          >
+          <div  class="view-all-link" style="cursor: pointer" onclick="showAllPackages('domestic')">View All</div>
         </div>
         <div id="domestic-loading" class="loading-spinner">
           <div class="spinner-border text-primary" role="status">
@@ -612,12 +774,11 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">International Locations</h2>
-          <a
-            href="#"
+          <div
+            style="cursor: pointer"
             class="view-all-link"
             onclick="showAllPackages('international')"
-            >View All</a
-          >
+            >View All</div>
         </div>
         <div id="international-loading" class="loading-spinner">
           <div class="spinner-border text-primary" role="status">
@@ -637,7 +798,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials-section">
+    <!-- <section class="testimonials-section">
       <div class="container">
         <h2 class="testimonials-title">What Our Travelers Say</h2>
         <div id="testimonials-loading" class="loading-spinner">
@@ -652,7 +813,7 @@
         ></div>
         <div id="testimonials-container" class="row g-4"></div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer class="site-footer text-white py-5">
@@ -774,7 +935,6 @@
 
           <!-- Legal & Policies Section -->
 
-          
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="footer-section">
               <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
@@ -822,7 +982,7 @@
         </div>
       </div>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       // API Configuration
@@ -854,13 +1014,6 @@
       }
 
       // Format currency
-      function formatPrice(price) {
-        return new Intl.NumberFormat("en-IN", {
-          style: "currency",
-          currency: "INR",
-          maximumFractionDigits: 0,
-        }).format(price);
-      }
 
       // Get package image
       function getPackageImage(packageData) {
@@ -993,59 +1146,59 @@
         const packagesToShow =
           isScrollableContainer && limit ? packages.slice(0, limit) : packages;
 
-        if (isScrollableContainer) {
-          container.innerHTML = packagesToShow
-            .map(
-              (pkg) => `
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="destination-card">
-                            <div class="destination-image" style="background-image: url('${getPackageImage(
-                              pkg
-                            )}')">
-                                <div class="rating-badge">
-                                    <i class="fas fa-star"></i> ${
-                                      pkg.days || 3
-                                    }D/${pkg.nights || 2}N
+        // Use the new package card design for all individual packages (same as domestic file)
+        container.innerHTML = packagesToShow
+          .map(
+            (pkg) => `
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                  <a href="package-detail.html?id=${
+                    pkg.id
+                  }" style="text-decoration: none;">
+                    <div class="package-card">
+                        <div class="package-image" style="background-image: url('${getPackageImage(
+                          pkg
+                        )}')">
+                            <div class="package-badge">${
+                              pkg.category || "Popular"
+                            }</div>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-info">
+                                <h5 class="destination-name">${pkg.name}</h5>
+                                <div class="package-meta">
+                                    <span>
+                                        <i class="fas fa-calendar-days"></i>
+                                        ${pkg.days || 1}D/${pkg.nights || 0}N
+                                    </span>
+                                    <span>
+                                        <i class="fas fa-city"></i>
+                                        ${pkg.city || pkg.state || "India"}
+                                    </span>
+                                    ${
+                                      pkg.providedBy
+                                        ? `
+                                    <span>
+                                        <i class="fas fa-building"></i>
+                                        ${pkg.providedBy}
+                                    </span>
+                                    `
+                                        : ""
+                                    }
                                 </div>
                             </div>
-                            <div class="destination-info">
-                                <h4 class="destination-name">${pkg.name}</h4>
-                                <span class="destination-price">${formatPrice(
-                                  (pkg.price || 0) + (pkg.tax || 0)
-                                )}</span>
+                            <div class="package-price-section">
+                               <div class="current-price">${pkg.price}</div>
+                               <div class="tax-info">${
+                                 pkg.tax
+                               } Taxes & fees per person</div>
                             </div>
                         </div>
                     </div>
-                `
-            )
-            .join("");
-        } else {
-          container.innerHTML = packagesToShow
-            .map(
-              (pkg) => `
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="destination-card">
-                            <div class="destination-image" style="background-image: url('${getPackageImage(
-                              pkg
-                            )}')">
-                                <div class="rating-badge">
-                                    <i class="fas fa-star"></i> ${
-                                      pkg.days || 3
-                                    }D/${pkg.nights || 2}N
-                                </div>
-                            </div>
-                            <div class="destination-info">
-                                <h4 class="destination-name">${pkg.name}</h4>
-                                <span class="destination-price">${formatPrice(
-                                  (pkg.price || 0) + (pkg.tax || 0)
-                                )}</span>
-                            </div>
-                        </div>
-                    </div>
-                `
-            )
-            .join("");
-        }
+                    </a>
+                </div>
+            `
+          )
+          .join("");
       }
 
       function renderTestimonials() {
@@ -1091,24 +1244,33 @@
       // Filter and display functions
       function filterPackages(type) {
         if (type === "domestic") {
+          // Show domestic section and hide international
+          document.getElementById("domestic-section").style.display = "block";
           document.getElementById("international-section").style.display =
             "none";
-          document
-            .getElementById("domestic-section")
-            .scrollIntoView({ behavior: "smooth" });
+
+          // Scroll to domestic section
         } else if (type === "international") {
+          // Show international section and hide domestic
+          document.getElementById("international-section").style.display =
+            "block";
           document.getElementById("domestic-section").style.display = "none";
-          document
-            .getElementById("international-section")
-            .scrollIntoView({ behavior: "smooth" });
+
+          // Scroll to international section
         }
       }
 
       function showAllPackages(type) {
         if (type === "domestic") {
-          renderPackages(domesticPackages, "domestic-packages"); // Show all packages
+          // Render all domestic packages (no limit)
+          renderPackages(domesticPackages, "domestic-packages");
+
+          // Scroll to domestic section
         } else if (type === "international") {
-          renderPackages(internationalPackages, "international-packages"); // Show all packages
+          // Render all international packages (no limit)
+          renderPackages(internationalPackages, "international-packages");
+
+          // Scroll to international section
         }
       }
 
