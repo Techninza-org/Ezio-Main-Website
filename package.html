@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Quote - EZIO TRAVELS</title>
+    <title>Travel Packages - EZIO TRAVELS</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,11 +12,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="footer.css" />
+
+      <link rel="stylesheet" href="/footer.css" />
     <style>
       :root {
         --primary-color: #667eea;
@@ -76,126 +73,429 @@
         align-items: center;
         gap: 3rem;
       }
+     
+    </style>
+    
+    <style>
+
 
       .hero-section {
-       background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
         color: white;
-        padding: 100px 0 60px;
+        padding: 80px 0 120px 0;
+        text-align: left;
+        position: relative;
       }
 
-      .hero-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(248, 249, 250, 0.1)
+        );
       }
 
-      .hero-subtitle {
-        font-size: 1.1rem;
-        opacity: 0.9;
+      .hero-section h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
       }
 
-      /* Form Styling */
-      .quote-form-container {
-        margin-top: -100px;
+      .hero-section p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .main-packages {
+        margin-top: -130px;
         position: relative;
         z-index: 10;
       }
 
-      .quote-form-card {
+      .main-package-card {
         background: white;
+        padding: 16px;
+        width: calc(40.33% - 20px);
         border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        cursor: pointer;
       }
 
-      .quote-form-title {
-        background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      .main-package-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .package-image {
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bharat-edition {
+        background: url("./images/bharat.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 10px;
+        border-radius: 16px;
+      }
+
+      .international-edition {
+        background: url("./images/international.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 10px;
+        border-radius: 16px;
+      }
+
+      .package-title {
+        padding: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.814);
+      }
+
+      .package-title h3 {
+        font-size: 1.3rem;
         font-weight: 700;
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
+        color: #2c3e50;
+        margin: 0;
       }
 
-      .form-control,
-      .form-select {
-        border: 2px solid transparent;
-        border-radius: 15px;
-        padding: 1rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        background: white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 60px 0 40px 0;
       }
 
-      .form-control:focus,
-      .form-select:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin: 0;
       }
 
-      .btn-primary {
-      background: linear-gradient(135deg, #1E8A9A, #1F8B98, #2C9888, #34A07E, #3DA475, #4BB368, #56BC57);
-        border: none;
-        border-radius: 15px;
-        padding: 1rem 2rem;
+      .view-all-link {
+        color: #28a745;
+        text-decoration: none;
         font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+
+      .view-all-link:hover {
+        color: #1e7e34;
+      }
+
+      .destination-card {
+        background: white;
+        padding: 20px;
+        border-radius: 16px;
+        overflow: hidden;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        height: 100%;
       }
 
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+      .destination-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
       }
 
-      /* Loading States */
-      .spinner {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        border-top-color: #fff;
-        animation: spin 1s ease-in-out infinite;
+      .destination-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-radius: 16px;
       }
 
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
+      .rating-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #ffc107;
+        color: #000;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+      }
+
+      .destination-info {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .destination-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+      }
+
+      .destination-price {
+        font-size: 1rem;
+        color: #28a745;
+        font-weight: 700;
+      }
+
+      /* Scrollable packages container */
+      .packages-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 0 20px 0;
+        scrollbar-width: thin;
+        scrollbar-color: #56bc57 #f1f1f1;
+      }
+
+      .packages-scroll-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .packages-scroll-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .packages-scroll-container::-webkit-scrollbar-thumb {
+        background: #56bc57;
+        border-radius: 10px;
+      }
+
+      .packages-scroll-container .col-lg-3 {
+        flex: 0 0 auto;
+        width: calc(50% - 10px); /* Two cards per row with gap */
+      }
+
+      /* For smaller screens */
+      @media (max-width: 768px) {
+        .packages-scroll-container .col-lg-3 {
+          width: calc(100% - 10px); /* One card per row on mobile */
         }
       }
 
-      /* Messages */
-      .success-message {
-        background: linear-gradient(135deg, #28a745, #20c997);
-        color: white;
-        padding: 1rem;
-        border-radius: 10px;
-        margin-top: 1rem;
-        display: none;
+      .testimonials-section {
+        background: #f8f9fa;
+        padding: 80px 0;
+        margin-top: 60px;
+      }
+
+      .testimonials-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 50px;
+      }
+
+      .testimonial-card {
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .testimonial-stars {
+        color: #ffc107;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .testimonial-text {
+        color: #555;
+        font-style: italic;
+        margin-bottom: 25px;
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .testimonial-author {
+        color: #2c3e50;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
       }
 
       .error-message {
-        background: linear-gradient(135deg, #dc3545, #fd7e14);
-        color: white;
-        padding: 1rem;
+        text-align: center;
+        color: #dc3545;
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 20px;
         border-radius: 10px;
-        margin-top: 1rem;
-        display: none;
+        margin: 20px 0;
+      }
+
+      .no-data {
+        text-align: center;
+        color: #6c757d;
+        padding: 40px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Responsive improvements */
+      @media (max-width: 1200px) {
+        .hero-section h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-section p {
+          font-size: 1.1rem;
+        }
+
+        .main-package-card {
+          width: calc(50% - 15px);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .hero-section {
+          padding: 60px 0 100px 0;
+        }
+
+        .hero-section h1 {
+          font-size: 2.2rem;
+        }
+
+        .main-packages {
+          margin-top: -100px;
+        }
+
+        .main-package-card {
+          width: calc(50% - 15px);
+          padding: 12px;
+        }
+
+        .package-image {
+          height: 200px;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 50px 0 80px 0;
+          text-align: center;
+        }
+
+        .hero-section h1 {
+          font-size: 2rem;
+          max-width: 100%;
+        }
+
+        .hero-section p {
+          font-size: 1rem;
+          max-width: 100%;
+        }
+
+        .main-packages {
+          margin-top: -60px;
+        }
+
+        .main-package-card {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .package-image {
+          height: 180px;
+        }
+
+        .destination-image {
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-section {
+          padding: 40px 0 60px 0;
+        }
+
+        .hero-section h1 {
+          font-size: 1.8rem;
+        }
+
+        .main-packages {
+          margin-top: -40px;
+        }
+
+        .package-image {
+          height: 160px;
+        }
+
+        .destination-image {
+          height: 160px;
+        }
+
+        .section-title {
+          font-size: 1.4rem;
+        }
       }
     </style>
   </head>
   <body>
     <!-- Navigation -->
-
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">
@@ -234,118 +534,123 @@
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <h1 class="hero-title">Get a Personalized Travel Package Quote</h1>
-            <p class="hero-subtitle">
-              Fill out the form below and our travel experts will create a
-              customized itinerary just for you.
-            </p>
+        <h1>Get a Personalized Travel Package Quote</h1>
+        <p>
+          Fill out the form below and our travel experts will create a
+          customized itinerary just for you.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Package Cards -->
+    <section class="main-packages">
+      <div class="container">
+        <div class="row justify-content-center gap-5">
+          <div class="col-lg-6 main-package-card">
+            <a
+              href="/bharat-package/bharat-package.html"
+              style="text-decoration: none"
+            >
+              <div class="bharat-edition">
+                <div class="package-image">
+                  <!-- <i class="fas fa-flag-india package-icon"></i> -->
+                </div>
+                <div class="package-title">
+                  <h3>Domestic Packages</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-6 main-package-card">
+            <div
+              class="international-edition"
+              onclick="filterPackages('international')"
+            >
+              <div class="package-image">
+                <!-- <i class="fas fa-globe package-icon"></i> -->
+              </div>
+              <div class="package-title">
+                <h3>International Packages</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Quote Form Section -->
-    <section class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="quote-form-container">
-            <div class="quote-form-card">
-              <h4 class="quote-form-title">Travel Quote Request</h4>
-              <form id="quoteForm">
-                <div class="mb-3">
-                  <label for="name" class="form-label fw-bold">
-                    <i
-                      class="fas fa-user me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i>
-                    Full Name
-                  </label>
-                  <input type="text" class="form-control" id="name" required />
-                </div>
-
-                <div class="mb-3">
-                  <label for="phone" class="form-label fw-bold">
-                    <i
-                      class="fas fa-phone me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i>
-                    Phone Number
-                  </label>
-                  <input type="tel" class="form-control" id="phone" required />
-                </div>
-
-                <div class="mb-3">
-                  <label for="number_of_people" class="form-label fw-bold">
-                    <i
-                      class="fas fa-users me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i>
-                    Number of People
-                  </label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="number_of_people"
-                    min="1"
-                    required
-                  />
-                </div>
-
-                <!-- <div class="mb-3">
-                  <label for="packageId" class="form-label fw-bold">
-                    <i
-                      class="fas fa-box me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i>
-                    Package
-                  </label>
-                  <select class="form-select" id="packageId" required>
-                    <option value="">Select a package</option>
-                    <option value="17">Package 17</option>
-             
-                  </select>
-                </div> -->
-
-                <div class="mb-3">
-                  <label for="start_date" class="form-label fw-bold">
-                    <i
-                      class="fas fa-calendar-check me-2"
-                      style="background: linear-gradient(45deg, #1F8B98, #4caf50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;"
-                    ></i>
-                    Travel Date
-                  </label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="start_date"
-                    required
-                  />
-                </div>
-
-                <button type="submit" class="btn btn-primary">
-                  <span id="submitText">Submit Quote Request</span>
-                  <span
-                    id="spinner"
-                    class="spinner"
-                    style="display: none"
-                  ></span>
-                </button>
-
-                <div id="successMessage" class="success-message mt-3">
-                  <i class="fas fa-check-circle me-2"></i> Your request has been
-                  submitted successfully! Our travel expert will contact you
-                  shortly.
-                </div>
-                <div id="errorMessage" class="error-message mt-3">
-                  <i class="fas fa-exclamation-circle me-2"></i> There was an
-                  error submitting your request. Please try again.
-                </div>
-              </form>
-            </div>
+    <!-- Domestic Locations -->
+    <section id="domestic-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Domestic Locations</h2>
+          <a
+            href="#"
+            class="view-all-link"
+            onclick="showAllPackages('domestic')"
+            >View All</a
+          >
+        </div>
+        <div id="domestic-loading" class="loading-spinner">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
           </div>
         </div>
+        <div
+          id="domestic-error"
+          class="error-message"
+          style="display: none"
+        ></div>
+        <div
+          id="domestic-packages"
+          class="row g-4 packages-scroll-container"
+        ></div>
+      </div>
+    </section>
+
+    <!-- International Locations -->
+    <section id="international-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">International Locations</h2>
+          <a
+            href="#"
+            class="view-all-link"
+            onclick="showAllPackages('international')"
+            >View All</a
+          >
+        </div>
+        <div id="international-loading" class="loading-spinner">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div
+          id="international-error"
+          class="error-message"
+          style="display: none"
+        ></div>
+        <div
+          id="international-packages"
+          class="row g-4 packages-scroll-container"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="testimonials-title">What Our Travelers Say</h2>
+        <div id="testimonials-loading" class="loading-spinner">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div
+          id="testimonials-error"
+          class="error-message"
+          style="display: none"
+        ></div>
+        <div id="testimonials-container" class="row g-4"></div>
       </div>
     </section>
 
@@ -468,6 +773,8 @@
           </div>
 
           <!-- Legal & Policies Section -->
+
+          
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="footer-section">
               <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
@@ -515,87 +822,302 @@
         </div>
       </div>
     </footer>
-
-    <!-- Scripts -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  // Handle package quote form submission (only required fields)
-      document
-        .getElementById("quoteForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+      // API Configuration
+      const API_BASE_URL =
+        "https://eziotravels.com/api/web/get-domestic-international-packages";
 
-          // Show loading state
-          document.getElementById("submitText").style.display = "none";
-          document.getElementById("spinner").style.display = "inline-block";
+      // State management
+      let domesticPackages = [];
+      let internationalPackages = [];
+      let testimonials = [];
 
-          // Hide any previous messages
-          document.getElementById("successMessage").style.display = "none";
-          document.getElementById("errorMessage").style.display = "none";
+      // Utility functions
+      function showLoading(elementId) {
+        document.getElementById(elementId).style.display = "flex";
+      }
 
-          // Prepare data (keep date in YYYY-MM-DD as provided by input)
-          const formData = {
-            name: document.getElementById("name").value.trim(),
-            phone: document.getElementById("phone").value.trim(),
-            number_of_people: parseInt(
-              document.getElementById("number_of_people").value,10
-            ),
-            // packageId: parseInt(document.getElementById("packageId").value,10),
-            packageId: 17,
-            start_date: document.getElementById("start_date").value,
-            source: "WEBSITE"
+      function hideLoading(elementId) {
+        document.getElementById(elementId).style.display = "none";
+      }
 
-          };
+      function showError(errorElementId, message) {
+        const errorElement = document.getElementById(errorElementId);
+        errorElement.textContent = message;
+        errorElement.style.display = "block";
+      }
 
-          // Basic validation guard (in case of manual tampering)
-          if (!formData.packageId) {
-            document.getElementById("errorMessage").textContent =
-              "Please select a package.";
-            document.getElementById("errorMessage").style.display = "block";
-            document.getElementById("submitText").style.display = "inline";
-            document.getElementById("spinner").style.display = "none";
-            return;
+      function hideError(errorElementId) {
+        document.getElementById(errorElementId).style.display = "none";
+      }
+
+      // Format currency
+      function formatPrice(price) {
+        return new Intl.NumberFormat("en-IN", {
+          style: "currency",
+          currency: "INR",
+          maximumFractionDigits: 0,
+        }).format(price);
+      }
+
+      // Get package image
+      function getPackageImage(packageData) {
+        if (packageData.images && packageData.images.length > 0) {
+          const coverImage =
+            packageData.images.find((img) => img.isCover) ||
+            packageData.images[0];
+          return coverImage.url;
+        }
+        return "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop";
+      }
+
+      // API Functions
+      async function fetchPackages() {
+        try {
+          showLoading("domestic-loading");
+          showLoading("international-loading");
+          hideError("domestic-error");
+          hideError("international-error");
+
+          const response = await fetch(API_BASE_URL);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
 
-          // Make API call (adjust endpoint if needed)
-          fetch("https://eziotravels.com/api/auth/quote_query", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Network response was not ok");
-              }
-              return response.json();
-            })
-            .then((data) => {
-              // Show success message
-              document.getElementById("successMessage").style.display = "block";
+          const data = await response.json();
 
-              // Reset form
-              document.getElementById("quoteForm").reset();
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              const errEl = document.getElementById("errorMessage");
-              errEl.style.display = "block";
-              errEl.textContent =
-                "There was an error submitting your request. Please try again.";
-            })
-            .finally(() => {
-              // Hide loading state
-              document.getElementById("submitText").style.display = "inline";
-              document.getElementById("spinner").style.display = "none";
+          // Process the data
+          domesticPackages = data.domesticPackages || [];
+          internationalPackages = data.internationalPackages || [];
+        } catch (error) {
+          console.error("Error fetching packages:", error);
+          showError(
+            "domestic-error",
+            "Failed to load domestic packages. Please try again later."
+          );
+          showError(
+            "international-error",
+            "Failed to load international packages. Please try again later."
+          );
+        } finally {
+          hideLoading("domestic-loading");
+          hideLoading("international-loading");
 
-              // Scroll to messages
-              document
-                .getElementById("successMessage")
-                .scrollIntoView({ behavior: "smooth" });
-            });
-        });
+          renderPackages(domesticPackages, "domestic-packages", 4); // Show only 4 packages initially
+          renderPackages(internationalPackages, "international-packages", 4); // Show only 4 packages initially
+        }
+      }
+
+      async function fetchTestimonials() {
+        try {
+          showLoading("testimonials-loading");
+          hideError("testimonials-error");
+
+          // For now, we'll use mock testimonials since the API doesn't provide them
+          generateMockTestimonials();
+        } catch (error) {
+          console.error("Error fetching testimonials:", error);
+          generateMockTestimonials();
+        } finally {
+          hideLoading("testimonials-loading");
+          renderTestimonials();
+        }
+      }
+
+      // Mock data generators (for testimonials)
+      function generateMockTestimonials() {
+        testimonials = [
+          {
+            id: 1,
+            name: "Devashish Nayak",
+            rating: 5,
+            text: "Amazing service with personalized planning. Seamless bookings and perfectly organized.",
+          },
+          {
+            id: 2,
+            name: "Priya Sharma",
+            rating: 5,
+            text: "Excellent experience with personalized planning destinations & organizing tour perfectly organized.",
+          },
+          {
+            id: 3,
+            name: "Rajesh Kumar",
+            rating: 5,
+            text: "Outstanding service with personalized planning. Seamless bookings and perfectly organized.",
+          },
+          {
+            id: 4,
+            name: "Sneha Patel",
+            rating: 4,
+            text: "The trip to Bali was absolutely amazing. Great service and attention to detail throughout our journey.",
+          },
+          {
+            id: 5,
+            name: "Amit Verma",
+            rating: 5,
+            text: "Best travel experience ever! The Dubai package exceeded all our expectations. Highly recommended!",
+          },
+          {
+            id: 6,
+            name: "Anjali Mehta",
+            rating: 4,
+            text: "Well organized Kerala backwaters tour. The houseboat experience was unforgettable. Will book again!",
+          },
+        ];
+      }
+
+      // Render functions
+      function renderPackages(packages, containerId, limit = null) {
+        const container = document.getElementById(containerId);
+
+        if (!packages || packages.length === 0) {
+          container.innerHTML = `
+                    <div class="col-12">
+                        <div class="no-data">
+                            <i class="fas fa-suitcase-rolling fa-3x mb-3 text-muted"></i>
+                            <h5>No packages available</h5>
+                            <p>Please check back later for new travel packages.</p>
+                        </div>
+                    </div>
+                `;
+          return;
+        }
+
+        // If it's one of our scrollable containers, show only limited packages initially
+        const isScrollableContainer =
+          containerId.includes("domestic-packages") ||
+          containerId.includes("international-packages");
+        const packagesToShow =
+          isScrollableContainer && limit ? packages.slice(0, limit) : packages;
+
+        if (isScrollableContainer) {
+          container.innerHTML = packagesToShow
+            .map(
+              (pkg) => `
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="destination-card">
+                            <div class="destination-image" style="background-image: url('${getPackageImage(
+                              pkg
+                            )}')">
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i> ${
+                                      pkg.days || 3
+                                    }D/${pkg.nights || 2}N
+                                </div>
+                            </div>
+                            <div class="destination-info">
+                                <h4 class="destination-name">${pkg.name}</h4>
+                                <span class="destination-price">${formatPrice(
+                                  (pkg.price || 0) + (pkg.tax || 0)
+                                )}</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        } else {
+          container.innerHTML = packagesToShow
+            .map(
+              (pkg) => `
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="destination-card">
+                            <div class="destination-image" style="background-image: url('${getPackageImage(
+                              pkg
+                            )}')">
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i> ${
+                                      pkg.days || 3
+                                    }D/${pkg.nights || 2}N
+                                </div>
+                            </div>
+                            <div class="destination-info">
+                                <h4 class="destination-name">${pkg.name}</h4>
+                                <span class="destination-price">${formatPrice(
+                                  (pkg.price || 0) + (pkg.tax || 0)
+                                )}</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        }
+      }
+
+      function renderTestimonials() {
+        const container = document.getElementById("testimonials-container");
+
+        if (!testimonials || testimonials.length === 0) {
+          container.innerHTML = `
+                    <div class="col-12">
+                        <div class="no-data">
+                            <i class="fas fa-comments fa-3x mb-3 text-muted"></i>
+                            <h5>No testimonials available</h5>
+                            <p>Check back soon for customer reviews.</p>
+                        </div>
+                    </div>
+                `;
+          return;
+        }
+
+        // Limit to 3 testimonials for the main page
+        const testimonialsToShow = testimonials.slice(0, 3);
+
+        container.innerHTML = testimonialsToShow
+          .map(
+            (testimonial) => `
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            ${'<i class="fas fa-star"></i>'.repeat(
+                              testimonial.rating || 5
+                            )}
+                        </div>
+                        <p class="testimonial-text">${testimonial.text}</p>
+                        <div class="testimonial-author">— ${
+                          testimonial.name
+                        }</div>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      // Filter and display functions
+      function filterPackages(type) {
+        if (type === "domestic") {
+          document.getElementById("international-section").style.display =
+            "none";
+          document
+            .getElementById("domestic-section")
+            .scrollIntoView({ behavior: "smooth" });
+        } else if (type === "international") {
+          document.getElementById("domestic-section").style.display = "none";
+          document
+            .getElementById("international-section")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      function showAllPackages(type) {
+        if (type === "domestic") {
+          renderPackages(domesticPackages, "domestic-packages"); // Show all packages
+        } else if (type === "international") {
+          renderPackages(internationalPackages, "international-packages"); // Show all packages
+        }
+      }
+
+      // Initialize the application
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch data from APIs
+        fetchPackages();
+        fetchTestimonials();
+      });
     </script>
   </body>
 </html>

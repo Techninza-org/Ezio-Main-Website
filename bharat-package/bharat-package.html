@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get a Personalized Travel Package Quote</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../footer.css" />
+    <style>
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #56bc57;
+        --dark-color: #1a1a1a;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+    </style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background-color: #f8f9fa;
+        line-height: 1.6;
+      }
+
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
+        color: white;
+        padding: 100px 0 50px 0;
+        text-align: start;
+      }
+
+      .hero-section h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .hero-section p {
+        font-size: 1rem;
+        opacity: 0.9;
+       
+      }
+
+      .section-container {
+        padding: 50px 0;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin: 0;
+      }
+
+      .view-all-btn {
+        color: #28a745;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+
+      .view-all-btn:hover {
+        color: #1e7e34;
+      }
+
+      /* Package Cards */
+      .package-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      .package-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .package-image {
+        height: 120px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .package-name {
+        padding: 15px;
+        text-align: center;
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.9rem;
+      }
+
+      /* States Cards - Circular */
+      .state-card {
+        text-align: center;
+        margin-bottom: 25px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .state-card:hover {
+        transform: scale(1.05);
+      }
+
+      .state-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        margin: 0 auto 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .state-card:hover .state-image {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .state-name {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.9rem;
+      }
+
+      /* Domestic Location Cards */
+      .location-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 25px;
+        cursor: pointer;
+      }
+
+      .location-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .location-image {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .rating-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #ffc107;
+        color: #000;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .location-info {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .location-name {
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .location-price {
+        color: #666;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      /* Scrollable packages container */
+      .packages-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 0 20px 0;
+        scrollbar-width: thin;
+        scrollbar-color: #20a39e #f1f1f1;
+      }
+
+      .packages-scroll-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .packages-scroll-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .packages-scroll-container::-webkit-scrollbar-thumb {
+        background: #20a39e;
+        border-radius: 10px;
+      }
+
+      .packages-scroll-container .col-md-6 {
+        flex: 0 0 auto;
+        width: calc(50% - 10px); /* Two cards per row with gap */
+      }
+
+      /* For smaller screens */
+      @media (max-width: 768px) {
+        .packages-scroll-container .col-md-6 {
+          width: calc(100% - 10px); /* One card per row on mobile */
+        }
+      }
+
+      .loading-spinner {
+        display: none;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .error-message {
+        display: none;
+        color: #dc3545;
+        text-align: center;
+        padding: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section h1 {
+          font-size: 1.8rem;
+        }
+
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .package-image {
+          height: 100px;
+        }
+
+        .state-image {
+          width: 100px;
+          height: 100px;
+        }
+
+        .location-image {
+          height: 160px;
+        }
+
+        .location-info {
+          padding: 15px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-section {
+          padding: 80px 0 40px 0;
+        }
+
+        .hero-section h1 {
+          font-size: 1.6rem;
+        }
+
+        .hero-section p {
+          font-size: 0.9rem;
+        }
+
+        .section-container {
+          padding: 40px 0;
+        }
+
+        .section-title {
+          font-size: 1.3rem;
+        }
+
+        .package-card {
+          margin-bottom: 15px;
+        }
+
+        .package-image {
+          height: 90px;
+        }
+
+        .package-name {
+          padding: 12px;
+          font-size: 0.85rem;
+        }
+
+        .state-card {
+          margin-bottom: 20px;
+        }
+
+        .state-image {
+          width: 90px;
+          height: 90px;
+        }
+
+        .state-name {
+          font-size: 0.85rem;
+        }
+
+        .location-card {
+          margin-bottom: 20px;
+        }
+
+        .location-image {
+          height: 140px;
+        }
+
+        .location-info {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .location-price {
+          align-self: flex-end;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .state-image {
+          width: 80px;
+          height: 80px;
+        }
+
+        .location-image {
+          height: 120px;
+        }
+      }
+
+      /* Additional responsive improvements for larger screens */
+      @media (min-width: 1200px) {
+        .package-image {
+          height: 130px;
+        }
+
+        .location-image {
+          height: 200px;
+        }
+      }
+
+      @media (min-width: 1400px) {
+        .package-image {
+          height: 140px;
+        }
+
+        .location-image {
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="../images/EZILogo.png" alt="EZI Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+
+    <section class="hero-section">
+      <div class="container">
+        <h1>Get a Personalized Travel Package Quote</h1>
+        <p>
+          Fill out the form below and our travel experts will create a
+          customized itinerary just for you.
+        </p>
+      </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="section-container">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Categories</h2>
+          <!-- <a href="#" class="view-all-btn">View All</a> -->
+        </div>
+
+        <div class="loading-spinner" id="packagesLoading">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2">Loading packages...</p>
+        </div>
+
+        <div class="error-message" id="packagesError">
+          <p>Failed to load packages. Please try again later.</p>
+        </div>
+
+        <div class="row g-3" id="packagesContainer">
+          <!-- Sample static data - will be replaced by API -->
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="1">
+              <div class="package-image package-adventure"></div>
+              <div class="package-name">Adventure</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="2">
+              <div class="package-image package-goa"></div>
+              <div class="package-name">Goa</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="3">
+              <div class="package-image package-kerala"></div>
+              <div class="package-name">Kerala</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="4">
+              <div class="package-image package-himachal"></div>
+              <div class="package-name">Himachal</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="5">
+              <div class="package-image package-food"></div>
+              <div class="package-name">Food</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="6">
+              <div class="package-image package-wedding"></div>
+              <div class="package-name">Wedding</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="7">
+              <div class="package-image package-honeymoon"></div>
+              <div class="package-name">Honeymoon</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="package-card" data-package-id="8">
+              <div class="package-image package-religious"></div>
+              <div class="package-name">Religious</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- States Section -->
+    <section class="section-container">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">States</h2>
+          <a href="/bharat-package/states.html" class="view-all-btn"
+            >View All</a
+          >
+        </div>
+
+        <div class="loading-spinner" id="statesLoading">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2">Loading states...</p>
+        </div>
+
+        <div class="error-message" id="statesError">
+          <p>Failed to load states. Please try again later.</p>
+        </div>
+
+        <div class="row g-4" id="statesContainer">
+          <!-- Sample static data - will be replaced by API -->
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="1">
+              <div class="state-image state-delhi"></div>
+              <div class="state-name">Delhi</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="2">
+              <div class="state-image state-himachal"></div>
+              <div class="state-name">Himachal Pradesh</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="3">
+              <div class="state-image state-kashmir"></div>
+              <div class="state-name">Jammu & Kashmir</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="4">
+              <div class="state-image state-uttarakhand"></div>
+              <div class="state-name">Uttarakhand</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="5">
+              <div class="state-image state-punjab"></div>
+              <div class="state-name">Punjab</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="6">
+              <div class="state-image state-uttar-pradesh"></div>
+              <div class="state-name">Uttar Pradesh</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="7">
+              <div class="state-image state-madhya-pradesh"></div>
+              <div class="state-name">Madhya Pradesh</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="state-card" data-state-id="8">
+              <div class="state-image state-rajasthan"></div>
+              <div class="state-name">Rajasthan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Domestic Locations Section -->
+    <section class="section-container">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Domestic Locations</h2>
+          <a href="#" class="view-all-btn" onclick="loadAllPackages()"
+            >View All</a
+          >
+        </div>
+
+        <div class="loading-spinner" id="locationsLoading">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2">Loading locations...</p>
+        </div>
+
+        <div class="error-message" id="locationsError">
+          <p>Failed to load locations. Please try again later.</p>
+        </div>
+
+        <div class="row g-4 packages-scroll-container" id="locationsContainer">
+          <!-- Packages will be loaded here dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer text-white py-5">
+      <div class="container">
+        <!-- Logo Section -->
+
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
+                <a href="/">
+                  <img src="../images/EZILogo.png" alt="EZI Logo" />
+                </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for
+                exceptional travel experiences. We specialize in creating
+                memorable journeys with personalized service and competitive
+                prices.
+              </p>
+
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/TravelwithEZIO"
+                  target="_blank"
+                  class="social-link"
+                  title="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://x.com/eziotravels"
+                  class="social-link"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/travel_with_ezio/?hl=en"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ezio-travel/"
+                  target="_blank"
+                  class="social-link"
+                  title="LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br />
+                    NOIDA 16, UP 201301
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link"
+                      >namaste@eziotravels.com</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link"
+                      >+91 98108 33897</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a>
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a>
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a
+                  href="./privacyPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a
+                  href="./term&condition.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+                <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
+                            </a> -->
+                <a
+                  href="./refundPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation
+                  Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text">
+                &copy; 2024 All Rights Reserved by
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // API Configuration
+      const API_CONFIG = {
+        baseURL: "https://eziotravels.com/api/web/domestic_packages_home",
+      };
+
+      // State management
+      let categories = [];
+      let states = [];
+      let packages = [];
+      let allPackagesLoaded = false;
+
+      // API Helper Functions
+      async function fetchData() {
+        try {
+          const response = await fetch(API_CONFIG.baseURL);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return await response.json();
+        } catch (error) {
+          console.error("Fetch error:", error);
+          throw error;
+        }
+      }
+
+      // Show loading state
+      function showLoading(sectionId) {
+        document.getElementById(`${sectionId}Loading`).style.display = "block";
+        document.getElementById(`${sectionId}Error`).style.display = "none";
+      }
+
+      // Hide loading state
+      function hideLoading(sectionId) {
+        document.getElementById(`${sectionId}Loading`).style.display = "none";
+      }
+
+      // Show error state
+      function showError(sectionId) {
+        document.getElementById(`${sectionId}Loading`).style.display = "none";
+        document.getElementById(`${sectionId}Error`).style.display = "block";
+      }
+
+      // Load all data
+      async function loadData() {
+        showLoading("packages");
+        showLoading("states");
+        showLoading("locations");
+
+        try {
+          const data = await fetchData();
+
+          // Process API data
+          categories = data.categories || [];
+          states = data.states || [];
+          packages = data.packages || [];
+
+          // Render all sections
+          renderPackages(categories);
+          renderStates(states);
+          renderLocations(packages, 4); // Show only 4 packages initially
+
+          // Hide loading indicators
+          hideLoading("packages");
+          hideLoading("states");
+          hideLoading("locations");
+        } catch (error) {
+          console.error("Error loading data:", error);
+          showError("packages");
+          showError("states");
+          showError("locations");
+        }
+      }
+
+      // Load all packages when "View All" is clicked
+      async function loadAllPackages() {
+        if (allPackagesLoaded) return;
+
+        try {
+          showLoading("locations");
+          renderLocations(packages); // Show all packages
+          allPackagesLoaded = true;
+          hideLoading("locations");
+        } catch (error) {
+          console.error("Error loading all packages:", error);
+          showError("locations");
+        }
+      }
+
+      // Render Packages (Categories)
+      function renderPackages(categories) {
+        const container = document.getElementById("packagesContainer");
+        container.innerHTML = "";
+
+        if (!categories || categories.length === 0) {
+          container.innerHTML =
+            '<div class="col-12"><p class="text-center">No categories available</p></div>';
+          return;
+        }
+
+        // Show only 8 categories
+        const displayCategories = categories.slice(0, 8);
+
+        displayCategories.forEach((category) => {
+          const packageCard = `
+                    <div class="col-6 col-md-3">
+                        <a href="./domestic.html?category=${encodeURIComponent(
+                          category.name
+                        )}" style="text-decoration: none;">
+                        <div class="package-card" data-package-id="${
+                          category.id
+                        }">
+                            <div class="package-image" style="background-image: url('${
+                              category.image ||
+                              "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+                            }')"></div>
+                            <div class="package-name">${category.name}</div>
+                        </div>
+                        </a>
+                    </div>
+                `;
+          container.innerHTML += packageCard;
+        });
+      }
+
+      // Render States
+      function renderStates(states) {
+        const container = document.getElementById("statesContainer");
+        container.innerHTML = "";
+
+        if (!states || states.length === 0) {
+          container.innerHTML =
+            '<div class="col-12"><p class="text-center">No states available</p></div>';
+          return;
+        }
+
+        // Take top 8 states from API (no sorting, just first 8)
+        const displayStates = states.slice(0, 8);
+
+        displayStates.forEach((state) => {
+          const stateCard = `
+                    <div class="col-6 col-md-3">
+                        <a href="./domestic.html?state=${encodeURIComponent(
+                          state.name
+                        )}" style="text-decoration: none;">
+                        <div class="state-card" data-state-id="${state.id}">
+                            <div class="state-image" style="background-image: url('${
+                              state.image ||
+                              "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+                            }')"></div>
+                            <div class="state-name">${state.name}</div>
+                        </div>
+                        </a>
+                    </div>
+                `;
+          container.innerHTML += stateCard;
+        });
+      }
+
+      // Render Locations (Packages)
+      function renderLocations(packages, limit = null) {
+        const container = document.getElementById("locationsContainer");
+        container.innerHTML = "";
+
+        if (!packages || packages.length === 0) {
+          container.innerHTML =
+            '<div class="col-12"><p class="text-center">No packages available</p></div>';
+          return;
+        }
+
+        // Take limited packages for display or all if no limit
+        const displayPackages = limit ? packages.slice(0, limit) : packages;
+
+        displayPackages.forEach((pkg) => {
+          // Get the cover image if available
+          const coverImage = (pkg.images &&
+            pkg.images.find((img) => img.isCover)) ||
+            (pkg.images && pkg.images[0]) || {
+              url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+            };
+
+          // Calculate total price (price + tax)
+          const totalPrice = (pkg.price || 0) + (pkg.tax || 0);
+
+          // Generate a random rating between 4.0 and 5.0 for display
+          const rating = (Math.random() * 1 + 4).toFixed(1);
+
+          const locationCard = `
+                    <div class="col-md-6">
+                        <div class="location-card" data-location-id="${pkg.id}">
+                            <div class="location-image" style="background-image: url('${
+                              coverImage.url
+                            }')">
+                                <div class="rating-badge">
+                                    <i class="fas fa-star"></i> ${rating}/5.0
+                                </div>
+                            </div>
+                            <div class="location-info">
+                                <h4 class="location-name">${pkg.name}</h4>
+                                <span class="location-price">₹${totalPrice.toLocaleString()}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          container.innerHTML += locationCard;
+        });
+      }
+
+      // Event Handlers
+      function setupEventHandlers() {
+        // Package card clicks
+        document.addEventListener("click", (e) => {
+          const packageCard = e.target.closest(".package-card");
+          if (packageCard) {
+            const packageId = packageCard.dataset.packageId;
+            console.log("Category clicked:", packageId);
+            // Handle category selection
+          }
+        });
+
+        // State card clicks
+        document.addEventListener("click", (e) => {
+          const stateCard = e.target.closest(".state-card");
+          if (stateCard) {
+            const stateId = stateCard.dataset.stateId;
+            console.log("State clicked:", stateId);
+            // Handle state selection
+          }
+        });
+
+        // Location card clicks
+        document.addEventListener("click", (e) => {
+          const locationCard = e.target.closest(".location-card");
+          if (locationCard) {
+            const locationId = locationCard.dataset.locationId;
+            console.log("Package clicked:", locationId);
+            // Handle package selection
+          }
+        });
+      }
+
+      // Initialize the application
+      function init() {
+        setupEventHandlers();
+        loadData();
+      }
+
+      // Start the application when DOM is ready
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,557 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Travel Packages - All States</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../footer.css" />
+    <style>
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #56bc57;
+        --dark-color: #1a1a1a;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+       .hero-section {
+                background: linear-gradient(
+          135deg,
+          #1e8a9a,
+          #1f8b98,
+          #2c9888,
+          #34a07e,
+          #3da475,
+          #4bb368,
+          #56bc57
+        );
+            color: white;
+            padding: 100px 0 50px 0;
+            text-align: start;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .hero-section p {
+            font-size: 1rem;
+            opacity: 0.9;
+          
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c8e8e 0%, #1e6b6b 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .states-container {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .state-card {
+            text-align: center;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .state-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .state-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .state-card:hover .state-image {
+            box-shadow: 0 12px 35px rgba(44, 142, 142, 0.3);
+            border-color: #2c8e8e;
+        }
+        
+        .state-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .state-packages {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: #dc3545;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .state-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        /* Additional responsive improvements */
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 80px 0 40px 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section p {
+                font-size: 0.95rem;
+            }
+            
+            .states-container {
+                padding: 40px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+            
+            .state-image {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .state-name {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .state-image {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .state-image {
+                width: 130px;
+                height: 130px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .state-image {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="../images/EZILogo.png" alt="EZI Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+     <section class="hero-section">
+        <div class="container">
+            <h1>Get a Personalized Travel Package Quote</h1>
+            <p>Fill out the form below and our travel experts will create a customized itinerary just for you.</p>
+        </div>
+    </section>
+
+    <div class="states-container">
+        <div class="container">
+            <div class="section-title">
+                <h2>States & Union Territories</h2>
+            </div>
+
+            <div class="loading-spinner">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Loading travel destinations...</p>
+            </div>
+
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                <h4>Unable to load destinations</h4>
+                <p>Please check your connection and try again.</p>
+                <button class="btn btn-primary" onclick="loadStatesData()">Retry</button>
+            </div>
+
+            <div class="row" id="statesGrid">
+                <!-- States will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+      <footer class="site-footer text-white py-5">
+      <div class="container">
+        <!-- Logo Section -->
+
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
+                <a href="/">
+                  <img src="../images/EZILogo.png" alt="EZI Logo" />
+                </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for
+                exceptional travel experiences. We specialize in creating
+                memorable journeys with personalized service and competitive
+                prices.
+              </p>
+
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/TravelwithEZIO"
+                  target="_blank"
+                  class="social-link"
+                  title="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://x.com/eziotravels"
+                  class="social-link"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/travel_with_ezio/?hl=en"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ezio-travel/"
+                  target="_blank"
+                  class="social-link"
+                  title="LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br />
+                    NOIDA 16, UP 201301
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link"
+                      >namaste@eziotravels.com</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link"
+                      >+91 98108 33897</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a>
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a>
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a
+                  href="./privacyPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a
+                  href="./term&condition.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+                <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
+                            </a> -->
+                <a
+                  href="./refundPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation
+                  Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text">
+                &copy; 2024 All Rights Reserved by
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'https://eziotravels.com/api/web/get-all-states';
+        
+        // State management
+        let allStates = [];
+
+        // Load states from API
+        async function loadStatesData() {
+            const loadingSpinner = document.querySelector('.loading-spinner');
+            const errorMessage = document.querySelector('.error-message');
+            const statesGrid = document.getElementById('statesGrid');
+
+            // Show loading
+            loadingSpinner.style.display = 'block';
+            errorMessage.style.display = 'none';
+            statesGrid.innerHTML = '';
+
+            try {
+                const response = await fetch(API_BASE_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                allStates = data.states || [];
+                
+                renderStates(allStates); // Directly render all states
+                loadingSpinner.style.display = 'none';
+            } catch (error) {
+                loadingSpinner.style.display = 'none';
+                errorMessage.style.display = 'block';
+                console.error('Error loading states:', error);
+            }
+        }
+
+        function renderStates(states) {
+            const statesGrid = document.getElementById('statesGrid');
+            
+            if (!states || states.length === 0) {
+                statesGrid.innerHTML = '<div class="col-12"><p class="text-center">No states available at the moment.</p></div>';
+                return;
+            }
+            
+            statesGrid.innerHTML = states.map(state => `
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <a href="./domestic.html?state=${encodeURIComponent(state.name)}" style="text-decoration: none;">
+                        <div class="state-card">
+                            <img src="${state.image}" alt="${state.name}" class="state-image" onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop&crop=center'">
+                            <div class="state-name">${state.name}</div>
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStatesData();
+        });
+
+        // Handle image loading errors
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.target.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop&crop=center';
+            }
+        }, true);
+    </script>
+</body>
+</html>

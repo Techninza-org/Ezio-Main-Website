@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinagar Short Break - EZI Travel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css" />
+    <style>
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #56bc57;
+        --dark-color: #1a1a1a;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+       
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background: white;
+            padding: 15px 0;
+        }
+
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "/";
+            color: #666;
+        }
+
+        .breadcrumb-item a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 30px 0;
+        }
+
+        .package-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .package-subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            margin-bottom: 30px;
+        }
+
+        .main-image {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .thumbnail {
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        /* Tab Navigation */
+        .custom-tabs {
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+        }
+
+        .custom-tab {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-tab.active {
+            color: #23ce6b;
+        }
+
+        .custom-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #23ce6b;
+        }
+
+        /* Price Card */
+
+        .price-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #e9ecef;
+            position: sticky;
+            top: 30px;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .price-per {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .price-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background: #23ce6b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #1ea854;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+           border: 1px solid #e9ecef;
+        }
+        .content-section-main {
+            background: white;
+            border-radius: 15px;
+            padding: 0px ;
+            margin-bottom: 30px;
+           border: 1px solid #e9ecef;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-left: 4px solid #23ce6b;
+            padding-left: 15px;
+        }
+
+        /* Activity Styles */
+
+        .activity-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: #23ce6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .activity-content h5 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .activity-content p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Itinerary Styles */
+        .itinerary-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        .day-item {
+            border-left: 3px solid #23ce6b;
+            padding-left: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .day-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background: #23ce6b;
+            border-radius: 50%;
+        }
+
+        .day-header {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        /* Day Navigation Styles */
+        .day-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            /* justify-content: center; */
+            align-items: center;
+            
+            padding: 10px;
+            background: #EFFFEF;
+            overflow-x: auto; /* Add horizontal scrollbar */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            scrollbar-width: thin; /* For Firefox */
+            scrollbar-color: #c1c1c1 #f1f1f1; /* For Firefox */
+        }
+        
+        /* Hide scrollbar for webkit browsers but keep functionality */
+        .day-navigation::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .day-navigation::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .day-navigation::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+        
+        .day-navigation::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        .itinerary-days{
+            padding: 30px;
+        }
+
+        .day-nav-btn {
+            background: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #495057;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0; /* Prevent buttons from shrinking */
+            white-space: nowrap; /* Prevent text wrapping */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow */
+        }
+
+        .day-nav-btn:hover {
+            background: #4BB368;
+            color: white;
+        }
+
+        .day-nav-btn.active {
+            background: #4BB368;
+            color: white;
+        }
+
+        /* Responsive styles for day navigation */
+        @media (max-width: 768px) {
+            .day-navigation {
+                flex-wrap: nowrap; /* Prevent wrapping to new lines */
+                align-items: center;
+                padding: 10px 15px; /* Add some side padding */
+            }
+            
+            .day-nav-btn {
+                width: auto; /* Allow buttons to size to content */
+                text-align: center;
+                margin-bottom: 0; /* Remove bottom margin */
+            }
+        }
+
+        /* Activities Grid Styles */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .activity-grid-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-grid-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .activity-image-grid {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .activity-icon-grid {
+            height: 150px;
+            background: #23ce6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .activity-grid-content {
+            padding: 15px;
+        }
+
+        .activity-grid-content h5 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .activity-grid-content p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Summary Styles */
+        .inclusions-exclusions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .inclusion-item, .exclusion-item {
+            background: #f0f8f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .exclusion-item {
+            background: #fdf2f2;
+        }
+
+        .inclusion-title, .exclusion-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inclusion-title i {
+            color: #28a745;
+        }
+
+        .exclusion-title i {
+            color: #dc3545;
+        }
+
+        .inclusion-list, .exclusion-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .inclusion-list li, .exclusion-list li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .inclusion-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .exclusion-list li::before {
+            content: "✗";
+            color: #dc3545;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* Policy Styles */
+        .policy-section {
+            margin-bottom: 40px;
+        }
+
+        .policy-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .policy-highlight {
+            background: #e8f5e8;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #155724;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .policy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .policy-list li {
+            padding: 8px 0;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .policy-list li::before {
+            content: "•";
+            color: #23ce6b;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-section h5 {
+            color: #23ce6b;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: #23ce6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .inclusions-exclusions {
+                grid-template-columns: 1fr;
+            }
+
+            .itinerary-info {
+                grid-template-columns: 1fr;
+            }
+
+            .package-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Responsive styles for activities grid */
+        @media (max-width: 768px) {
+            .activities-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .activity-image-grid {
+                height: 120px;
+            }
+            
+            .activity-icon-grid {
+                height: 120px;
+                font-size: 1.5rem;
+            }
+            
+            .activity-grid-content {
+                padding: 12px;
+            }
+            
+            .activity-grid-content h5 {
+                font-size: 0.95rem;
+            }
+            
+            .activity-grid-content p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .activities-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .activity-image-grid {
+                height: 100px;
+            }
+            
+            .activity-icon-grid {
+                height: 100px;
+                font-size: 1.2rem;
+            }
+            
+            .activity-grid-content {
+                padding: 10px;
+            }
+            
+            .activity-grid-content h5 {
+                font-size: 0.9rem;
+            }
+            
+            .activity-grid-content p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/EZILogo.png" alt="EZI Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Search result</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Srinagar Short Break</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Left Column - Package Details -->
+                <div class="col-lg-8">
+                    <!-- Package Header -->
+                    <div class="content-section">
+                        <h1 class="package-title" id="packageTitle">Andaman Adventures</h1>
+                        <div class="package-subtitle" id="packageSubtitle">7D/6N Andaman and Nicobar Islands • Beach</div>
+                        
+                        <!-- Image Gallery -->
+                        <div class="image-gallery">
+                            <div class="main-image" id="mainImage" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/65b1cd264941b04d39fa43f3319d34b2eaff9b4da8df8c77d3cd582b5a4c4e2c');"></div>
+                            <div class="thumbnail-grid" id="thumbnailGrid">
+                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/65b1cd264941b04d39fa43f3319d34b2eaff9b4da8df8c77d3cd582b5a4c4e2c');"></div>
+                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/0328872e970e0d9d8460dd85278e3b21aa012dd8dca51e6fd9601f5c0730af17');"></div>
+                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/6cb2348b6a0a38109a1261228892c4238c6599632df2191686093192a93e4309');"></div>
+                                <div class="thumbnail" style="background-image: url('https://ezio.s3.eu-north-1.amazonaws.com/103bfcff80cf5d7a8d0ba486615a3fd5624ed0739115d0bbc998c2e1094a7c80');"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Navigation -->
+                    <div class="custom-tabs">
+                        <button class="custom-tab active" data-tab="itinerary" onclick="showTab('itinerary', this)">Itinerary</button>
+                        <button class="custom-tab" data-tab="summary" onclick="showTab('summary', this)">Summary</button>
+                        <button class="custom-tab" data-tab="policies" onclick="showTab('policies', this)">Policies</button>
+                    </div>
+
+                    <!-- Itinerary Tab -->
+                    <div id="itinerary-tab" class="tab-content">
+                        <div class="content-section-main">
+                           
+            
+                            <!-- Day Navigation -->
+                            <div id="dayNavigation" class="day-navigation"></div>
+
+                            <div id="itineraryDays" class="itinerary-days"></div>
+                                <!-- Itinerary days will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+
+                        <!-- Summary Tab -->
+                        <div id="summary-tab" class="tab-content" style="display: none;">
+    
+                            <div class="content-section">
+                                <div class="itinerary-info" id="itineraryInfo">
+                                    
+                                </div>
+                                <h2 class="section-title">Package Summary</h2>
+                                
+                                <div class="inclusions-exclusions">
+                                    <div class="inclusion-item">
+                                        <div class="inclusion-title">
+                                            <i class="fas fa-check-circle"></i>
+                                            Inclusions
+                                        </div>
+                                        <ul class="inclusion-list" id="inclusionsList">
+                                            <li>All Transfer & Sightseeing via Premium (Best Value for Money) Non AC</li>
+                                            <li>Pickup from Port Blair , and drop at Port Blair</li>
+                                            <li>Cellular Jail (Museum and Light and Sound Show)(subject to availability) plus Corbyns Cove Beach - Port Blair</li>
+                                            <li>Radhanagar Beach Package - Havelock</li>
+                                            <li>Elephant Beach with Complementary Snorkelling - Havelock</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="exclusion-item">
+                                        <div class="exclusion-title">
+                                            <i class="fas fa-times-circle"></i>
+                                            Exclusions
+                                        </div>
+                                        <ul class="exclusion-list" id="exclusionsList">
+                                            <li>Early check in/Late check out</li>
+                                            <li>Anything not mentioned in the inclusion above</li>
+                                            <li>Itinerary is valid if you are reaching during day hours.</li>
+                                            <li>Personal Expenses like Telephone, Fax, Internet, Laundry.</li>
+                                            <li>Camera Tickets at various places of Sightseeing/tour.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="content-section">
+                                    <h3 class="section-title">Highlights</h3>
+                                    <ul class="inclusion-list" id="highlightsList">
+                                        <li>No Extra Rides Or Tickets Are Included In This Package</li>
+                                        <li>Flight fare Is Not Included</li>
+                                        <li>Standard Check in time: 12 PM Standard Check out time: 9 AM</li>
+                                        <li>Ferry will be issued as per the availability of tickets. Sightseeing will be covered as per ferry  timings</li>
+                                        <li>30% Payment required at the time of Booking Confirmation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Policies Tab -->
+                        <div id="policies-tab" class="tab-content" style="display: none;">
+                            <div class="content-section">
+                                <h2 class="section-title">Package Policies</h2>
+                                
+                                <div class="policy-section">
+                                    <h3 class="policy-title">Cancellation Policy</h3>
+                                    <ul class="exclusion-list" id="cancellationPolicy">
+                                        <li>Cancellation 15 days or more before DOT: 20% of the total booking cost will be charged.</li>
+                                        <li>Cancellation between 7 to 15 days before DOT: 50% of the total booking cost will be charged.</li>
+                                        <li>Cancellation within 0 to 7 days before DOT: 100% of the total booking cost will be charged.</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="policy-section">
+                                    <h3 class="policy-title">Date Change Policy</h3>
+                                    <ul class="inclusion-list" id="dateChangePolicy">
+                                        <li>30% Payment required at the time of Booking Confirmation</li>
+                                        <li>70% Payment required 21 days before the Travel</li>
+                                        <li>Vouchers will be released 72 Hours Post receipt of 100% Money & Documents</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Price Card -->
+                    <div class="col-lg-4">
+                        <div class="price-card">
+                            <div class="price-amount" id="packagePrice">₹49,135</div>
+                            <div class="price-per">per person</div>
+                            <div class="price-note">* Price may vary based on season and availability</div>
+                            <button class="cta-button" id="getQuotationBtn">
+                                <i class="fas fa-file-contract me-2"></i>
+                                Get a Quotation
+                            </button>
+                            <div class="mt-3 text-center">
+                                <small class="text-muted">24/7 Customer Support Available</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer text-white py-5">
+      <div class="container ">
+        <!-- Logo Section -->
+
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
+                <a href="/">
+                  <img src="images/EZILogo.png" alt="EZI Logo" />
+                </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for
+                exceptional travel experiences. We specialize in creating
+                memorable journeys with personalized service and competitive
+                prices.
+              </p>
+
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/TravelwithEZIO"
+                  target="_blank"
+                  class="social-link"
+                  title="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://x.com/eziotravels"
+                  class="social-link"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/travel_with_ezio/?hl=en"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ezio-travel/"
+                  target="_blank"
+                  class="social-link"
+                  title="LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br />
+                    NOIDA 16, UP 201301
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link"
+                      >namaste@eziotravels.com</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link"
+                      >+91 98108 33897</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a>
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a>
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a
+                  href="./privacyPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a
+                  href="./term&condition.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+                <!-- <a href="./shippingPolicy.html" class="footer-link" target="_blank">
+                                <i class="fas fa-shipping-fast me-2"></i>Shipping & Delivery Policy
+                            </a> -->
+                <a
+                  href="./refundPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation
+                  Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text">
+                &copy; 2024 All Rights Reserved by
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // API Configuration
+        const API_CONFIG = {
+            baseURL: 'https://eziotravels.com/api/web/package'
+        };
+
+        // Get package ID from URL parameters
+        function getPackageId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id') || '36'; // Default to 36 if no ID provided
+        }
+
+        // Fetch package data
+        async function fetchPackageData() {
+            const packageId = getPackageId();
+            try {
+                const response = await fetch(`${API_CONFIG.baseURL}/${packageId}`);
+                if (!response.ok) throw new Error('Failed to fetch package data');
+                const result = await response.json();
+                return result.package; // Return the package data from the response
+            } catch (error) {
+                console.error('Error fetching package data:', error);
+                return null;
+            }
+        }
+
+        // Update package header
+        function updatePackageHeader(data) {
+            if (data) {
+                document.getElementById('packageTitle').textContent = data.name || 'Andaman Adventures';
+                document.getElementById('packageSubtitle').textContent = `${data.days}D/${data.nights}N ${data.state} • ${data.category}`;
+                document.getElementById('packagePrice').textContent = `₹${data.price?.toLocaleString() || '49,135'}`;
+                
+                // Update images if provided
+                if (data.images && data.images.length > 0) {
+                    // Set main image (cover image)
+                    const coverImage = data.images.find(img => img.isCover) || data.images[0];
+                    document.getElementById('mainImage').style.backgroundImage = `url('${coverImage.url}')`;
+                    
+                    // Update thumbnails
+                    const thumbnailGrid = document.getElementById('thumbnailGrid');
+                    thumbnailGrid.innerHTML = '';
+                    data.images.slice(0, 4).forEach(image => {
+                        const thumbnail = document.createElement('div');
+                        thumbnail.className = 'thumbnail';
+                        thumbnail.style.backgroundImage = `url('${image.url}')`;
+                        thumbnail.onclick = () => changeMainImage(thumbnail);
+                        thumbnailGrid.appendChild(thumbnail);
+                    });
+                }
+            }
+        }
+
+        // Update itinerary
+        function updateItinerary(data) {
+            if (data && data.itinerary && data.itinerary.length > 0) {
+                // Update itinerary info
+                const infoContainer = document.getElementById('itineraryInfo');
+                infoContainer.innerHTML = `
+                    <div class="info-item">
+                        <span class="info-label">Destination</span>
+                        <input type="text" class="form-control" value="${data.state}" readonly>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Nights</span>
+                        <input type="text" class="form-control" value="${data.nights}" readonly>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Days</span>
+                        <input type="text" class="form-control" value="${data.days}" readonly>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Category</span>
+                        <input type="text" class="form-control" value="${data.category || 'Beach'}" readonly>
+                    </div>
+                    </div>
+                   
+                `;
+
+                // Create day navigation
+                const dayNavigation = document.getElementById('dayNavigation');
+                if (dayNavigation) {
+                    let dayNavHTML = '';
+                    data.itinerary.forEach((day, index) => {
+                        dayNavHTML += `
+                            <button class="day-nav-btn" onclick="scrollToDay(${index}, event)">
+                                Day ${day.dayNumber}
+                            </button>
+                        `;
+                    });
+                    dayNavigation.innerHTML = dayNavHTML;
+                }
+
+                // Update daily itinerary
+                const daysContainer = document.getElementById('itineraryDays');
+                daysContainer.innerHTML = '';
+                
+                data.itinerary.forEach((day, index) => {
+                    // Create hotel info section
+                    let hotelInfo = '';
+                    if (day.hotel) {
+                        hotelInfo = `
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-hotel"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h5>Hotel</h5>
+                                    <p>${day.hotel}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    // Create meal info section
+                    let mealInfo = '';
+                    if (day.meals) {
+                        const meals = [];
+                        if (day.meals.breakfast) meals.push('Breakfast');
+                        if (day.meals.lunch) meals.push('Lunch');
+                        if (day.meals.dinner) meals.push('Dinner');
+                        
+                        if (meals.length > 0) {
+                            mealInfo = `
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h5>Meals Included</h5>
+                                        <p>${meals.join(', ')}</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+                    
+                    // Create activities section with grid layout for images
+                    let activitiesHTML = '';
+                    if (day.activities && day.activities.length > 0) {
+                        // Group activities into grid format
+                        activitiesHTML = `
+                            <div class="activities-grid">
+                                ${day.activities.map(activity => `
+                                    <div class="activity-grid-item">
+                                        ${activity.image && activity.image.url ? `
+                                        <div class="activity-image-grid" style="background-image: url('${activity.image.url}');"></div>
+                                        ` : `
+                                        <div class="activity-icon-grid">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        `}
+                                        <div class="activity-grid-content">
+                                            <h5>${activity.title}</h5>
+                                            <p>${activity.description}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'day-item';
+                    dayElement.id = `day-${index}`; // Add ID for scrolling
+                    dayElement.innerHTML = `
+                        <div class="day-header">Day ${day.dayNumber} • ${day.title}</div>
+                        <p>${day.summary || ''}</p>
+                        ${hotelInfo}
+                        ${mealInfo}
+                        ${activitiesHTML}
+                    `;
+                    daysContainer.appendChild(dayElement);
+                });
+            }
+        }
+
+        // Function to scroll to a specific day
+        function scrollToDay(dayIndex, event) {
+            const dayElement = document.getElementById(`day-${dayIndex}`);
+            if (dayElement) {
+                dayElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Highlight the clicked day button
+                document.querySelectorAll('.day-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                if (event && event.target) {
+                    event.target.classList.add('active');
+                }
+            }
+        }
+
+        // Update summary
+        function updateSummary(data) {
+            if (data) {
+                // Update inclusions
+                if (data.inclusions && data.inclusions.length > 0) {
+                    const inclusionsList = document.getElementById('inclusionsList');
+                    inclusionsList.innerHTML = data.inclusions.map(item => `<li>${item}</li>`).join('');
+                }
+
+                // Update exclusions
+                if (data.exclusions && data.exclusions.length > 0) {
+                    const exclusionsList = document.getElementById('exclusionsList');
+                    exclusionsList.innerHTML = data.exclusions.map(item => `<li>${item}</li>`).join('');
+                }
+
+                // Update highlights
+                if (data.highlights && data.highlights.length > 0) {
+                    const highlightsList = document.getElementById('highlightsList');
+                    highlightsList.innerHTML = data.highlights.map(item => `<li>${item}</li>`).join('');
+                }
+            }
+        }
+
+        // Update policies
+        function updatePolicies(data) {
+            if (data) {
+                // Update cancellation policy
+                if (data.cancellation_policy && data.cancellation_policy.length > 0) {
+                    const cancellationPolicy = document.getElementById('cancellationPolicy');
+                    cancellationPolicy.innerHTML = data.cancellation_policy.map(item => `<li>${item}</li>`).join('');
+                }
+
+                // Update date change policy
+                if (data.date_change_policy && data.date_change_policy.length > 0) {
+                    const dateChangePolicy = document.getElementById('dateChangePolicy');
+                    dateChangePolicy.innerHTML = data.date_change_policy.map(item => `<li>${item}</li>`).join('');
+                }
+            }
+        }
+
+        // Tab functionality
+        function showTab(tabName, clickedButton) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.custom-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${tabName}-tab`).style.display = 'block';
+            
+            // Add active class to clicked tab button
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            } else {
+                // Fallback to find the correct button
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            }
+        }
+
+        // Change main image
+        function changeMainImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnailBg = thumbnail.style.backgroundImage;
+            mainImage.style.backgroundImage = thumbnailBg;
+        }
+
+        // Get quotation button click handler
+        document.getElementById('getQuotationBtn').addEventListener('click', function() {
+            // Handle quotation request
+            const packageId = getPackageId();
+            console.log('Get quotation clicked for package:', packageId);
+            // Redirect to quote page with package ID
+            window.location.href = `quote.html?packageId=${packageId}`;
+        });
+
+        // Initialize the page
+        async function initializePage() {
+            // Show loading state
+            document.getElementById('packageTitle').textContent = 'Loading...';
+            
+            // Load package data
+            const packageData = await fetchPackageData();
+            if (packageData) {
+                updatePackageHeader(packageData);
+                updateItinerary(packageData);
+                updateSummary(packageData);
+                updatePolicies(packageData);
+                
+                // Load initial tab (itinerary)
+                showTab('itinerary', document.querySelector('[data-tab="itinerary"]'));
+            } else {
+                document.getElementById('packageTitle').textContent = 'Package Not Found';
+                document.getElementById('packageSubtitle').textContent = 'Please check the package ID and try again';
+            }
+        }
+
+        // Start initialization when DOM is ready
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+</body>
+</html>

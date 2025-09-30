@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinagar Short Break - Book Now</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="/footer.css" />
+      <style>
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #56bc57;
+        --dark-color: #1a1a1a;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #56bc57 !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        color: #56bc57 !important;
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background: #56bc57;
+        border-radius: 2px;
+      }
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+      .hero-section {
+        background: linear-gradient(135deg, #20a39e 0%, #23ce6b 100%);
+        color: white;
+        padding: 100px 0 50px 0;
+        text-align: center;
+      }
+
+      .hero-section h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .hero-section p {
+        font-size: 1rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    </style>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .breadcrumb {
+            background: none;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .container-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .form-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .form-title svg {
+            margin-right: 0.5rem;
+        }
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .form-control, .form-select {
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #17a2b8;
+            box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+        }
+        .price-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 2rem;
+        }
+        .price-amount {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #333;
+        }
+        .price-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .price-details {
+            color: #17a2b8;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-quote {
+            background: linear-gradient(135deg, #17a2b8 0%, #28a745 100%);
+            color: white;
+            border: none;
+            padding: 0.875rem;
+            font-weight: 600;
+            border-radius: 16px;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .btn-quote:hover {
+            opacity: 0.9;
+            color: white;
+        }
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .success-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #17a2b8 0%, #28a745 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .success-icon svg {
+            width: 70px;
+            height: 70px;
+        }
+        .success-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .btn-done {
+            background: linear-gradient(135deg, #17a2b8 0%, #28a745 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 3rem;
+            border-radius: 16px;
+            font-weight: 600;
+        }
+        .spinner-border-sm {
+            width: 1rem;
+            height: 1rem;
+            border-width: 0.15em;
+        }
+    </style>
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/EZILogo.png" alt="EZI Logo" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="package.html">Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="BlogPage.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" style="color: #666; text-decoration: none;">Home</a></li>
+                <li class="breadcrumb-item"><a href="/search" style="color: #666; text-decoration: none;">Search result</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Srinagar Short Break</li>
+            </ol>
+        </nav>
+
+        <div >
+          <div class="form-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Enter passenger details
+          </div>
+            <div>
+                <div class="form-card">
+
+                    <form id="quoteForm">
+                        <div class="mb-3">
+                            <label class="form-label">Enter Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Enter Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">No. of Companions</label>
+                            <input type="number" class="form-control" id="companions" name="companions" placeholder="Companion" min="1" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-quote" id="submitBtn">
+                            <span id="btnText">Submit Quotation</span>
+                            <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+
+
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <svg fill="white" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+            </div>
+            <div class="success-title">Your Submission is Successful!</div>
+            <button class="btn btn-done" onclick="closeModal()">Done</button>
+        </div>
+    </div>
+
+     <footer class="site-footer text-white py-5">
+      <div class="container">
+        <!-- Logo Section -->
+
+        <div class="row">
+          <!-- About Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-info-circle me-2"></i>About Us</h5>
+              <div class="logo-container">
+                <a href="/">
+                  <img src="images/EZILogo.png" alt="EZI Logo" />
+                </a>
+              </div>
+              <p class="footer-text">
+                EZIO TRAVELS PRIVATE LIMITED is your trusted partner for
+                exceptional travel experiences. We specialize in creating
+                memorable journeys with personalized service and competitive
+                prices.
+              </p>
+
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/TravelwithEZIO"
+                  target="_blank"
+                  class="social-link"
+                  title="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://x.com/eziotravels"
+                  class="social-link"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/travel_with_ezio/?hl=en"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ezio-travel/"
+                  target="_blank"
+                  class="social-link"
+                  title="LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Us Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    REGUS WTT, TOWER B 16TH FLOOR,<br />
+                    NOIDA 16, UP 201301
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <a href="mailto:namaste@eziotravels.com" class="footer-link"
+                      >namaste@eziotravels.com</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <a href="tel:+9198108 33897" class="footer-link"
+                      >+91 98108 33897</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-link me-2"></i>Quick Links</h5>
+              <div class="d-flex flex-column">
+                <a href="./about.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>About Us
+                </a>
+                <a href="./BlogPage.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Blog
+                </a>
+                <a href="./index.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Home
+                </a>
+                <a href="./contact.html" class="footer-link">
+                  <i class="fas fa-chevron-right me-2"></i>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legal & Policies Section -->
+
+          
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5><i class="fas fa-shield-alt me-2"></i>Legal & Policies</h5>
+              <div class="d-flex flex-column">
+                <a
+                  href="./privacyPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-user-shield me-2"></i>Privacy Policy
+                </a>
+                <a
+                  href="./term&condition.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-file-contract me-2"></i>Terms & Conditions
+                </a>
+              
+                <a
+                  href="./refundPolicy.html"
+                  class="footer-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-undo-alt me-2"></i>Refund & Cancellation
+                  Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div>
+              <p class="copyright-text">
+                &copy; 2024 All Rights Reserved by
+                <strong>EZIO TRAVELS PRIVATE LIMITED</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageId = urlParams.get('packageId') || '1';
+
+        document.getElementById('quoteForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+            
+            submitBtn.disabled = true;
+            btnText.classList.add('d-none');
+            btnSpinner.classList.remove('d-none');
+
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                number_of_people: parseInt(document.getElementById('companions').value),
+                packageId: parseInt(packageId),
+                start_date: document.getElementById('startDate').value,
+                source: 'WEBSITE'
+            };
+
+            try {
+                const response = await fetch('https://eziotravels.com/api/auth/quote_query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('successModal').style.display = 'flex';
+                    document.getElementById('quoteForm').reset();
+                } else {
+                    alert('Error: ' + (data.error_description || 'Something went wrong'));
+                }
+            } catch (error) {
+                alert('Error: Failed to submit form. Please try again.');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+            }
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('startDate').setAttribute('min', today);
+    </script>
+</body>
+</html>
