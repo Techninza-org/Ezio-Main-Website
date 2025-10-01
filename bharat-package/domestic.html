@@ -849,14 +849,15 @@
                                         <i class="fas fa-calendar-days"></i>
                                         ${pkg.days}D/${pkg.nights}N
                                     </span>
-                                    <span>
+                                    ${pkg.city ? `<span>
                                         <i class="fas fa-city"></i>
                                         ${pkg.city}
-                                    </span>
+                                    </span>` : ''}
+                                   
                                     ${pkg.providedBy ? `
                                     <span>
                                         <i class="fas fa-building"></i>
-                                        ${pkg.providedBy}
+                                       Provided By:  ${pkg.providedBy}
                                     </span>
                                     ` : ''}
                                 </div>

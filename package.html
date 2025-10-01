@@ -702,10 +702,7 @@
     <section class="hero-section">
       <div class="container">
         <h1>Get a Personalized Travel Package Quote</h1>
-        <p>
-          Fill out the form below and our travel experts will create a
-          customized itinerary just for you.
-        </p>
+       
       </div>
     </section>
 
@@ -1172,14 +1169,14 @@
                                     </span>
                                     <span>
                                         <i class="fas fa-city"></i>
-                                        ${pkg.city || pkg.state || "India"}
+                                        ${pkg.city || pkg.country }
                                     </span>
                                     ${
                                       pkg.providedBy
                                         ? `
                                     <span>
                                         <i class="fas fa-building"></i>
-                                        ${pkg.providedBy}
+                                       Provided By:  ${pkg.providedBy}
                                     </span>
                                     `
                                         : ""
